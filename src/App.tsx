@@ -7,6 +7,7 @@ import Leaders from './pages/Leaders';
 import LeaderDetail from './pages/LeaderDetail';
 import Activities from './pages/Activities';
 import ActivityDetail from './pages/ActivityDetail';
+import About from './pages/About';
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Navigate to="/home" replace />} />
           <Route path="/home" element={<Home />} />
+          <Route path="/about" element={<About />} />
           <Route path="/leaders" element={<Leaders />} />
           <Route path="/leaders/:id" element={<LeaderDetail />} />
           <Route path="/activities" element={<Activities />} />
