@@ -24,20 +24,19 @@ function App() {
       <div className="min-h-screen">
         <Header />
         <Routes>
-          <Route path="/" element={<Navigate to="/home" replace />} />
-          <Route path="/home" element={<Home />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/leaders" element={<Leaders />} />
-          <Route path="/leaders/:id" element={<LeaderDetail />} />
-          <Route path="/activities" element={<Activities />} />
-          <Route path="/activities/:id" element={<ActivityDetail />} />
+          <Route path="/" element={<Home />} />
+          <Route path="/über-uns" element={<About />} />
+          <Route path="/leiter" element={<Leaders />} />
+          <Route path="/leiter/:id" element={<LeaderDetail />} />
+          <Route path="/anlässe" element={<Activities />} />
+          <Route path="/anlässe/:id" element={<ActivityDetail />} />
           <Route path="/angebote" element={<Offerings />} />
           <Route path="/angebote/:id" element={<OfferingDetail />} />
           <Route path="/posts" element={<Posts />} />
           <Route path="/posts/:id" element={<PostDetail />} />
-          <Route path="/gallery" element={<Gallery />} />
-          <Route path="/gallery/:id" element={<AlbumDetail />} />
-          <Route path="/contact" element={<Contact />} />
+          <Route path="/galerie" element={<Gallery />} />
+          <Route path="/galerie/:id" element={<AlbumDetail />} />
+          <Route path="/kontakt" element={<Contact />} />
           <Route path="/impressum" element={<Impressum />} />
           <Route path="/datenschutz" element={<DataProtection />} />
           <Route path="*" element={<NotFound />} />
