@@ -21,16 +21,16 @@ const navItems: NavItem[] = [
   { label: 'News', path: '/posts' },
 ];
 
-const ctaButton = {
-  label: 'Mitmachen',
-  action: () => console.log('CTA clicked'),
-};
-
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const location = useLocation();
   const navigate = useNavigate();
+
+  const ctaButton = {
+    label: 'Mitmachen',
+    action: () => navigate('/contact'),
+  };
 
   useEffect(() => {
     const handleScroll = () => {

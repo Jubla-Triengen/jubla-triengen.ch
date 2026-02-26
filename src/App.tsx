@@ -12,6 +12,7 @@ import PostDetail from './pages/PostDetail';
 import About from './pages/About';
 import Gallery from './pages/Gallery';
 import AlbumDetail from './pages/AlbumDetail';
+import Contact from './pages/Contact';
 
 function App() {
   return (
@@ -30,6 +31,7 @@ function App() {
           <Route path="/posts/:id" element={<PostDetail />} />
           <Route path="/gallery" element={<Gallery />} />
           <Route path="/gallery/:id" element={<AlbumDetail />} />
+          <Route path="/contact" element={<Contact />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
         <Footer />

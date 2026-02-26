@@ -1,3 +1,4 @@
+import { ReactNode } from 'react';
 import { LucideIcon } from 'lucide-react';
 import Button from './Button';
 
@@ -17,6 +18,7 @@ interface ContentImageSectionProps {
   imagePosition?: 'left' | 'right';
   backgroundColor?: string;
   decorativeCircle?: boolean;
+  children?: ReactNode;
 }
 
 export default function ContentImageSection({
@@ -28,6 +30,7 @@ export default function ContentImageSection({
   imagePosition = 'right',
   backgroundColor = 'bg-gradient-to-b from-gray-50 to-white',
   decorativeCircle = true,
+  children,
 }: ContentImageSectionProps) {
   const contentOrder = imagePosition === 'left' ? 'lg:order-2' : '';
   const imageOrder = imagePosition === 'left' ? 'lg:order-1' : '';
@@ -50,6 +53,7 @@ export default function ContentImageSection({
                 {paragraph}
               </p>
             ))}
+            {children}
             {button && (
               <Button onClick={button.action} icon={button.icon}>
                 {button.text}
