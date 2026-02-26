@@ -7,6 +7,8 @@ import Leaders from './pages/Leaders';
 import LeaderDetail from './pages/LeaderDetail';
 import Activities from './pages/Activities';
 import ActivityDetail from './pages/ActivityDetail';
+import Offerings from './pages/Offerings';
+import OfferingDetail from './pages/OfferingDetail';
 import Posts from './pages/Posts';
 import PostDetail from './pages/PostDetail';
 import About from './pages/About';
@@ -29,6 +31,8 @@ function App() {
           <Route path="/leaders/:id" element={<LeaderDetail />} />
           <Route path="/activities" element={<Activities />} />
           <Route path="/activities/:id" element={<ActivityDetail />} />
+          <Route path="/angebote" element={<Offerings />} />
+          <Route path="/angebote/:id" element={<OfferingDetail />} />
           <Route path="/posts" element={<Posts />} />
           <Route path="/posts/:id" element={<PostDetail />} />
           <Route path="/gallery" element={<Gallery />} />

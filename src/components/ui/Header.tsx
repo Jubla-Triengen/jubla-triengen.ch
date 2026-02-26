@@ -16,7 +16,7 @@ const brandConfig = {
 
 const navItems: NavItem[] = [
   { label: 'Über uns', sectionId: 'about', path: '/about' },
-  { label: 'Angebote', sectionId: 'angebote', path: '/home' }, // Assuming functionality stays similar
+  { label: 'Angebote', path: '/angebote' },
   { label: 'Programm', sectionId: 'highlights', path: '/activities' }, 
   { label: 'News', path: '/posts' },
 ];
