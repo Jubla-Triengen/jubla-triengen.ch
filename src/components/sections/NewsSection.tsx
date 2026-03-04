@@ -1,6 +1,6 @@
-import SectionTitle from '../ui/SectionTitle';
 import NewsCard from '../ui/NewsCard';
-import FeaturedEventCard from '../ui/FeaturedEventCard';
+import CardSection from '../ui/CardSection';
+import { ArrowRight } from 'lucide-react';
 
 const newsItems = [
   {
@@ -19,24 +19,27 @@ const newsItems = [
 
 export default function NewsSection() {
   return (
-    <section id="news" className="py-24 bg-gradient-to-b from-white to-gray-50">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <SectionTitle className='mb-6'>Neues aus der Jubla</SectionTitle>
-
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-          <div className="lg:col-span-full space-y-6">
-            {newsItems.map((news, index) => (
-              <NewsCard
-                key={index}
-                image={news.image}
-                title={news.title}
-                date={news.date}
-                excerpt={news.excerpt}
-              />
-            ))}
-          </div>
-        </div>
+    <CardSection
+      id="news"
+      title="Neues aus der Jubla"
+      orientation="vertical"
+      backgroundColor="gradient"
+      button={{
+        text: 'Zum den Neuigkeiten',
+        icon: ArrowRight,
+      }}
+    >
+      <div className="lg:col-span-full space-y-6">
+        {newsItems.map((news, index) => (
+          <NewsCard
+            key={index}
+            image={news.image}
+            title={news.title}
+            date={news.date}
+            excerpt={news.excerpt}
+          />
+        ))}
       </div>
-    </section>
+    </CardSection>
   );
 }

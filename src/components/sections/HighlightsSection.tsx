@@ -1,6 +1,5 @@
-import SectionTitle from '../ui/SectionTitle';
 import EventCard from '../ui/EventCard';
-import Button from '../ui/Button';
+import CardSection from '../ui/CardSection';
 import { ArrowRight } from 'lucide-react';
 
 const highlights = [
@@ -26,27 +25,25 @@ const highlights = [
 
 export default function HighlightsSection() {
   return (
-    <section id="highlights" className="py-24 bg-white">
-      <SectionTitle className='mb-6'>Unsere nächsten Highlights</SectionTitle>
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        
-
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
-          {highlights.map((highlight, index) => (
-            <EventCard
-              key={index}
-              image={highlight.image}
-              title={highlight.title}
-              date={highlight.date}
-              description={highlight.description}
-            />
-          ))}
-        </div>
-
-        <div className="text-center">
-          <Button icon={ArrowRight} >Zum Programm</Button>
-        </div>
-      </div>
-    </section>
+    <CardSection
+      id="highlights"
+      title="Unsere nächsten Highlights"
+      orientation="horizontal"
+      backgroundColor="white"
+      button={{
+        text: 'Zum Programm',
+        icon: ArrowRight,
+      }}
+    >
+      {highlights.map((highlight, index) => (
+        <EventCard
+          key={index}
+          image={highlight.image}
+          title={highlight.title}
+          date={highlight.date}
+          description={highlight.description}
+        />
+      ))}
+    </CardSection>
   );
 }
