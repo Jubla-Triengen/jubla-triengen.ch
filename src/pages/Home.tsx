@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router-dom";
 import HeroSection from "../components/sections/HeroSection";
 import FeatureCard from "../components/ui/FeatureCard";
 import ContentImageSection from "../components/ui/ContentImageSection";
@@ -31,33 +32,32 @@ const features = [
   },
 ];
 
-const welcomeContent = {
-  id: "about",
-  title: "Willkommen bei der Jubla Triengen",
-  paragraphs: [
-    "Die Jubla Triengen ist mehr als nur eine Jugendorganisation. Wir sind eine Gemeinschaft von Abenteurern, die gemeinsam die Natur entdecken, Freundschaften fürs Leben schliessen und unvergessliche Erinnerungen schaffen.",
-    "Bei uns stehen Spass, Kreativität und das gemeinsame Erleben im Mittelpunkt. Ob bei wöchentlichen Gruppenstunden, aufregenden Ferienlagern oder besonderen Events – bei der Jubla ist für jedes Kind etwas dabei.",
-  ],
-  image: {
-    src: "https://image.jimcdn.com/app/cms/image/transf/none/path/sb21156d07b64a771/image/iaadd36084aabac03/version/1741809698/image.jpg",
-    alt: "Kinder beim Wandern",
-  },
-  button: {
-    text: "Unsere Angebote",
-    icon: ArrowRight,
-    action: () => {
-      const element = document.getElementById("angebote");
-      if (element) {
-        element.scrollIntoView({ behavior: "smooth" });
-      }
-    },
-  },
-};
-
 const Home = () => {
+  const navigate = useNavigate();
+
   const highlights = activities.slice(0, 3);
 
   const newsItems = posts.slice(0, 2);
+
+  const welcomeContent = {
+    id: "about",
+    title: "Willkommen bei der Jubla Triengen",
+    paragraphs: [
+      "Die Jubla Triengen ist mehr als nur eine Jugendorganisation. Wir sind eine Gemeinschaft von Abenteurern, die gemeinsam die Natur entdecken, Freundschaften fürs Leben schliessen und unvergessliche Erinnerungen schaffen.",
+      "Bei uns stehen Spass, Kreativität und das gemeinsame Erleben im Mittelpunkt. Ob bei wöchentlichen Gruppenstunden, aufregenden Ferienlagern oder besonderen Events – bei der Jubla ist für jedes Kind etwas dabei.",
+    ],
+    image: {
+      src: "https://image.jimcdn.com/app/cms/image/transf/none/path/sb21156d07b64a771/image/iaadd36084aabac03/version/1741809698/image.jpg",
+      alt: "Kinder beim Wandern",
+    },
+    button: {
+      text: "Unsere Angebote",
+      icon: ArrowRight,
+      action: () => {
+        navigate("/angebote");
+      },
+    },
+  };
 
   return (
     <main>
@@ -86,6 +86,7 @@ const Home = () => {
         button={{
           text: "Zum Programm",
           icon: ArrowRight,
+          onClick: () => {navigate("/anlässe")}
         }}
       >
         {highlights.map((highlight) => (
@@ -106,6 +107,7 @@ const Home = () => {
         button={{
           text: "Zu den Neuigkeiten",
           icon: ArrowRight,
+          onClick: () => {navigate("/posts")}
         }}
       >
         <div className="lg:col-span-full space-y-6">
