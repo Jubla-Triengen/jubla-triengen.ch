@@ -1,41 +1,51 @@
-import { useNavigate } from 'react-router-dom';
-import { activities } from '../data/activities';
-import EventCard from '../components/ui/EventCard';
-import PageHero from '../components/ui/PageHero';
-import SectionTitle from '../components/ui/SectionTitle';
-import SectionText from '../components/ui/SectionText';
+import { useNavigate } from "react-router-dom";
+import { activities } from "../data/activities";
+import EventCard from "../components/ui/EventCard";
+import PageHero from "../components/ui/PageHero";
+import PageDescription from "../components/ui/PageDescription";
+import PageContent from "../components/ui/PageContent";
+import SearchableCardGrid from "../components/ui/SearchableCardGrid";
 
 export default function Activities() {
   const navigate = useNavigate();
 
   return (
     <div className="min-h-screen bg-gray-50">
-      <PageHero 
+      <PageHero
         image="https://images.unsplash.com/photo-1502086223501-681a6a508d52?auto=format&fit=crop&q=80"
         title="Jahres Programm"
       />
-      
-      <section className="py-16 md:py-24 bg-white">
-        <div className="container mx-auto px-4 md:px-8">
-          <SectionTitle>Was läuft unter dem Jahr ?</SectionTitle>
-          <SectionText className="mt-4">
-            Hier findest du eine Übersicht über unsere kommenden und vergangenen Aktivitäten. Klicke auf eine Karte, um mehr zu erfahren.
-          </SectionText>
+      <PageContent>
+        <PageDescription
+          title="Unsere Aktivitäten"
+          description="Entdecke unser vielfältiges Jahresprogramm voller spannender Aktivitäten, die für jedes Alter und Interesse etwas bieten. Von actionreichen Outdoor-Abenteuern über kreative Workshops bis hin zu gemütlichen Lagerfeuerabenden – bei uns ist immer etwas los!"
+        />
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {activities.map((activity) => (
-              <EventCard
-                key={activity.id}
-                image={activity.image}
-                title={activity.title}
-                date={activity.date}
-                description={activity.shortDescription}
-                onClick={() => navigate(`/activities/${activity.id}`)}
-              />
-            ))}
-          </div>
-        </div>
-      </section>
+        <SearchableCardGrid
+          items={activities}
+          getItemKey={(activity) => activity.id}
+          getSearchValues={(activity) => [
+            activity.id,
+            activity.title,
+            activity.date,
+            activity.shortDescription,
+            ...activity.attachments.map((attachment) => attachment.name),
+          ]}
+          searchPlaceholder="Aktivität suchen..."
+          emptyResultsText="Keine passenden Aktivitäten gefunden."
+          renderCard={(activity) => (
+            <EventCard
+              key={activity.id}
+              image={activity.image}
+              title={activity.title}
+              date={activity.date}
+              description={activity.shortDescription}
+              onClick={() => navigate(`/activities/${activity.id}`)}
+            />
+          )}
+        />
+      </PageContent>
+
     </div>
   );
 }

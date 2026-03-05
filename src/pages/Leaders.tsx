@@ -1,9 +1,10 @@
 
 import { Link } from 'react-router-dom';
 import Card from '../components/ui/Card';
-import SectionTitle from '../components/ui/SectionTitle';
-import SectionText from '../components/ui/SectionText';
 import PageHero from '../components/ui/PageHero';
+import PageDescription from '../components/ui/PageDescription';
+import PageContent from '../components/ui/PageContent';
+import SearchableCardGrid from '../components/ui/SearchableCardGrid';
 import { leaders } from '../data/leaders';
 
 export default function Leaders() {
@@ -14,22 +15,29 @@ export default function Leaders() {
         title="Unser Leitungsteam"
         subtitle="Gemeinsam für unvergessliche Erlebnisse"
       />
-      
-      <div className="container mx-auto px-4 py-16">
-        <div className="text-center mb-16 max-w-2xl mx-auto">
-          <SectionTitle>Wer wir sind</SectionTitle>
-          <SectionText className="mt-4">
-            Das Herzstück der Jubla Triengen sind unsere freiwilligen Leiterinnen und Leiter. 
-            Sie planen und führen Gruppenstunden, Scharanlässe und Lager durch – mit viel Herzblut 
-            und ehrenamtlichem Engagement.
-          </SectionText>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {leaders.map((leader) => (
+      <PageContent>
+        <PageDescription
+          title="Wer wir sind"
+          description="Das Herzstück der Jubla Triengen sind unsere freiwilligen Leiterinnen und Leiter. Sie planen und führen Gruppenstunden, Scharanlässe und Lager durch – mit viel Herzblut und ehrenamtlichem Engagement."
+        />
+        <SearchableCardGrid
+          items={leaders}
+          getItemKey={(leader) => leader.id}
+          getSearchValues={(leader) => [
+            leader.name,
+            leader.nickname,
+            leader.role,
+            leader.email,
+            leader.phone,
+            leader.birthday,
+            leader.courses,
+            leader.jublaRoles,
+          ]}
+          searchPlaceholder="Leitungsperson suchen..."
+          emptyResultsText="Keine passenden Leitungspersonen gefunden."
+          renderCard={(leader) => (
             <Link 
               to={`/leaders/${leader.id}`} 
-              key={leader.id} 
               className="block h-full group"
             >
               <div className="h-full transition-transform duration-300 group-hover:-translate-y-2">
@@ -46,9 +54,9 @@ export default function Leaders() {
                 </Card>
               </div>
             </Link>
-          ))}
-        </div>
-      </div>
+          )}
+        />
+      </PageContent>
     </div>
   );
 }

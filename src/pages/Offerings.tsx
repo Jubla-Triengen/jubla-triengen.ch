@@ -1,10 +1,10 @@
 import { useNavigate } from 'react-router-dom';
 import { offerings } from '../data/offerings';
 import PageHero from '../components/ui/PageHero';
-import SectionTitle from '../components/ui/SectionTitle';
-import SectionText from '../components/ui/SectionText';
 import ContentImageSection from '../components/ui/ContentImageSection';
 import { ArrowRight } from 'lucide-react';
+import PageDescription from '../components/ui/PageDescription';
+import PageContent from '../components/ui/PageContent';
 
 export default function Offerings() {
   const navigate = useNavigate();
@@ -17,16 +17,13 @@ export default function Offerings() {
         subtitle="Entdecke die Vielfalt der Jubla Triengen"
       />
       
-      <section className="py-24 bg-white">
-        <div className="container mx-auto px-4 md:px-8 text-center max-w-4xl">
-          <SectionTitle>Was wir bieten</SectionTitle>
-          <SectionText className="mt-6">
-            Die Jubla Triengen bietet ein vielfältiges Programm für Kinder und Jugendliche. 
+      <PageContent wide={true}>
+      <PageDescription  
+        title="Was wir bieten"
+        description="Die Jubla Triengen bietet ein vielfältiges Programm für Kinder und Jugendliche. 
             Von wöchentlichen Gruppenstunden bis zu unvergesslichen Lagern ist für jeden etwas dabei.
-            Tauche ein in unsere Welt und entdecke, was die Jubla so einzigartig macht.
-          </SectionText>
-        </div>
-      </section>
+            Tauche ein in unsere Welt und entdecke, was die Jubla so einzigartig macht."
+      />
 
       <div className="flex flex-col">
         {offerings.map((offering, index) => (
@@ -49,6 +46,7 @@ export default function Offerings() {
           />
         ))}
       </div>
+      </PageContent>
     </div>
   );
 }
