@@ -92,6 +92,7 @@ const Home = () => {
         {highlights.map((highlight) => (
           <EventCard
             key={highlight.id}
+            id={highlight.id}
             image={highlight.image}
             title={highlight.title}
             date={highlight.date}
@@ -114,6 +115,7 @@ const Home = () => {
           {newsItems.map((news) => (
             <NewsCard
               key={news.id}
+              id={news.id}
               image={news.image}
               title={news.title}
               date={news.date}

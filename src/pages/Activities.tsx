@@ -1,4 +1,3 @@
-import { useNavigate } from "react-router-dom";
 import { activities } from "../data/activities";
 import EventCard from "../components/ui/EventCard";
 import PageHero from "../components/ui/PageHero";
@@ -7,8 +6,6 @@ import PageContent from "../components/ui/PageContent";
 import SearchableCardGrid from "../components/ui/SearchableCardGrid";
 
 export default function Activities() {
-  const navigate = useNavigate();
-
   return (
     <div className="min-h-screen bg-gray-50">
       <PageHero
@@ -36,11 +33,11 @@ export default function Activities() {
           renderCard={(activity) => (
             <EventCard
               key={activity.id}
+              id={activity.id}
               image={activity.image}
               title={activity.title}
               date={activity.date}
               description={activity.shortDescription}
-              onClick={() => navigate(`/activities/${activity.id}`)}
             />
           )}
         />

@@ -11,7 +11,7 @@ export default function ActivityDetail() {
     return (
       <div className="min-h-screen pt-32 pb-16 px-4 text-center">
         <h2 className="text-2xl font-bold mb-4">Aktivität nicht gefunden</h2>
-        <Link to="/activities" className="text-blue-600 hover:underline">
+        <Link to="/anlässe" className="text-blue-600 hover:underline">
           Zurück zur Übersicht
         </Link>
       </div>
@@ -26,7 +26,7 @@ export default function ActivityDetail() {
         subtitle: activity.date,
       }}
       backLink={{
-        to: "/activities",
+        to: "/anlässe",
         label: "Zurück zur Übersicht",
       }}
     >
