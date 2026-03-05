@@ -1,27 +1,29 @@
-import { useParams, Link } from 'react-router-dom';
-import { leaders } from '../data/leaders';
-import DetailPageLayout from '../components/ui/DetailPageLayout';
-import { 
-  Mail, 
-  Phone, 
+import { useParams, Link } from "react-router-dom";
+import { leaders } from "../data/leaders";
+import DetailPageLayout from "../components/ui/DetailPageLayout";
+import {
+  Mail,
+  Phone,
   User,
   Cake,
   Briefcase,
   GraduationCap,
   Award,
   Heart,
-  Star
-} from 'lucide-react';
+  Star,
+} from "lucide-react";
 
 export default function LeaderDetail() {
   const { id } = useParams<{ id: string }>();
-  const leader = leaders.find(l => l.id === id);
+  const leader = leaders.find((l) => l.id === id);
 
   if (!leader) {
     return (
       <div className="min-h-screen pt-32 pb-16 px-4 text-center">
         <h2 className="text-2xl font-bold mb-4">Leiter nicht gefunden</h2>
-         <Link to="/leaders" className="text-blue-600 hover:underline">Zurück zur Übersicht</Link>
+        <Link to="/leaders" className="text-blue-600 hover:underline">
+          Zurück zur Übersicht
+        </Link>
       </div>
     );
   }
@@ -34,8 +36,8 @@ export default function LeaderDetail() {
         subtitle: leader.role,
       }}
       backLink={{
-        to: '/leaders',
-        label: 'Zurück zur Übersicht',
+        to: "/leaders",
+        label: "Zurück zur Übersicht",
       }}
       contentMaxWidthClassName="max-w-5xl"
     >
@@ -55,13 +57,23 @@ export default function LeaderDetail() {
               {leader.email && (
                 <div className="flex items-center gap-3">
                   <Mail className="w-5 h-5 text-blue-600 flex-shrink-0" />
-                  <a href={`mailto:${leader.email}`} className="hover:text-blue-600 break-all text-sm">{leader.email}</a>
+                  <a
+                    href={`mailto:${leader.email}`}
+                    className="hover:text-blue-600 break-all text-sm"
+                  >
+                    {leader.email}
+                  </a>
                 </div>
               )}
               {leader.phone && (
                 <div className="flex items-center gap-3">
                   <Phone className="w-5 h-5 text-blue-600 flex-shrink-0" />
-                  <a href={`tel:${leader.phone}`} className="hover:text-blue-600 text-sm">{leader.phone}</a>
+                  <a
+                    href={`tel:${leader.phone}`}
+                    className="hover:text-blue-600 text-sm"
+                  >
+                    {leader.phone}
+                  </a>
                 </div>
               )}
               {!leader.email && !leader.phone && (
@@ -76,11 +88,17 @@ export default function LeaderDetail() {
 
         <div className="flex-1 w-full">
           <div className="mb-8">
-            <h1 className="text-3xl md:text-4xl font-bold text-gray-800 mb-2">{leader.name}</h1>
+            <h1 className="text-3xl md:text-4xl font-bold text-gray-800 mb-2">
+              {leader.name}
+            </h1>
             <div className="flex flex-wrap gap-x-4 gap-y-2 items-baseline">
-              <span className="text-blue-600 font-bold text-xl">{leader.role}</span>
+              <span className="text-blue-600 font-bold text-xl">
+                {leader.role}
+              </span>
               {leader.nickname && (
-                <span className="text-gray-500 text-lg">aka "{leader.nickname}"</span>
+                <span className="text-gray-500 text-lg">
+                  aka "{leader.nickname}"
+                </span>
               )}
             </div>
           </div>
@@ -90,7 +108,9 @@ export default function LeaderDetail() {
               <div className="flex items-start gap-3">
                 <Cake className="w-6 h-6 text-orange-400 flex-shrink-0 mt-1" />
                 <div>
-                  <p className="text-sm text-gray-500 font-medium uppercase tracking-wider">Geburtstag</p>
+                  <p className="text-sm text-gray-500 font-medium uppercase tracking-wider">
+                    Geburtstag
+                  </p>
                   <p className="text-gray-800">{leader.birthday}</p>
                 </div>
               </div>
@@ -100,7 +120,9 @@ export default function LeaderDetail() {
               <div className="flex items-start gap-3">
                 <Briefcase className="w-6 h-6 text-slate-500 flex-shrink-0 mt-1" />
                 <div>
-                  <p className="text-sm text-gray-500 font-medium uppercase tracking-wider">Beruf</p>
+                  <p className="text-sm text-gray-500 font-medium uppercase tracking-wider">
+                    Beruf
+                  </p>
                   <p className="text-gray-800">{leader.profession}</p>
                 </div>
               </div>
@@ -110,7 +132,9 @@ export default function LeaderDetail() {
               <div className="flex items-start gap-3">
                 <GraduationCap className="w-6 h-6 text-indigo-500 flex-shrink-0 mt-1" />
                 <div>
-                  <p className="text-sm text-gray-500 font-medium uppercase tracking-wider">J+S Kurse</p>
+                  <p className="text-sm text-gray-500 font-medium uppercase tracking-wider">
+                    J+S Kurse
+                  </p>
                   <p className="text-gray-800">{leader.courses}</p>
                 </div>
               </div>
@@ -120,7 +144,9 @@ export default function LeaderDetail() {
               <div className="flex items-start gap-3">
                 <Award className="w-6 h-6 text-yellow-500 flex-shrink-0 mt-1" />
                 <div>
-                  <p className="text-sm text-gray-500 font-medium uppercase tracking-wider">Ämtli in der Schar</p>
+                  <p className="text-sm text-gray-500 font-medium uppercase tracking-wider">
+                    Ämtli in der Schar
+                  </p>
                   <p className="text-gray-800">{leader.jublaRoles}</p>
                 </div>
               </div>
@@ -152,7 +178,9 @@ export default function LeaderDetail() {
                   <Star className="w-5 h-5 text-yellow-500 fill-yellow-500" />
                   Jubla Highlight
                 </h3>
-                <p className="text-gray-700 italic">"{leader.jublaHighlight}"</p>
+                <p className="text-gray-700 italic">
+                  "{leader.jublaHighlight}"
+                </p>
               </div>
             )}
           </div>

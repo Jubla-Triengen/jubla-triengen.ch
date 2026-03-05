@@ -1,5 +1,5 @@
-import { Calendar } from 'lucide-react';
-import Card from './Card';
+import { Calendar } from "lucide-react";
+import Card from "./Card";
 
 interface EventCardProps {
   image: string;
@@ -9,7 +9,13 @@ interface EventCardProps {
   onClick?: () => void;
 }
 
-export default function EventCard({ image, title, date, description, onClick }: EventCardProps) {
+export default function EventCard({
+  image,
+  title,
+  date,
+  description,
+  onClick,
+}: EventCardProps) {
   return (
     <Card
       image={image}

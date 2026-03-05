@@ -1,4 +1,4 @@
-import { ArrowRight, Calendar } from 'lucide-react';
+import { ArrowRight, Calendar } from "lucide-react";
 
 interface NewsCardProps {
   image: string;
@@ -7,7 +7,12 @@ interface NewsCardProps {
   excerpt: string;
 }
 
-export default function NewsCard({ image, title, date, excerpt }: NewsCardProps) {
+export default function NewsCard({
+  image,
+  title,
+  date,
+  excerpt,
+}: NewsCardProps) {
   return (
     <div className="group bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden flex flex-col sm:flex-row">
       <div className="sm:w-1/3 h-48 sm:h-auto overflow-hidden">
@@ -22,7 +27,9 @@ export default function NewsCard({ image, title, date, excerpt }: NewsCardProps)
           <Calendar className="w-4 h-4" />
           <span className="font-mundial font-light text-sm">{date}</span>
         </div>
-        <h3 className="font-mundial font-semibold text-2xl text-black mb-3">{title}</h3>
+        <h3 className="font-mundial font-semibold text-2xl text-black mb-3">
+          {title}
+        </h3>
         <p className="font-mundial font-light text-gray-600 mb-4">{excerpt}</p>
         <button className="text-jubla-yellow hover:text-jubla-yellow-dark font-mundial font-medium flex items-center gap-2 group">
           Weiterlesen

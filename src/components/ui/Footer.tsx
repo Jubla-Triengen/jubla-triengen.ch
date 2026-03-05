@@ -1,5 +1,12 @@
-import { Facebook, Instagram, Mail, Phone, MapPin, LucideIcon } from 'lucide-react';
-import { Logo } from './Logo';
+import {
+  Facebook,
+  Instagram,
+  Mail,
+  Phone,
+  MapPin,
+  LucideIcon,
+} from "lucide-react";
+import { Logo } from "./Logo";
 
 interface ContactItem {
   icon: LucideIcon;
@@ -19,44 +26,45 @@ interface SocialLink {
 }
 
 const brandConfig = {
-  name: 'Jubla Triengen',
-  description: 'Abenteuer, Freundschaft und unvergessliche Erlebnisse für Kinder und Jugendliche.',
+  name: "Jubla Triengen",
+  description:
+    "Abenteuer, Freundschaft und unvergessliche Erlebnisse für Kinder und Jugendliche.",
 };
 
 const contactInfo: ContactItem[] = [
   {
     icon: Mail,
-    text: 'info@jubla-triengen.ch',
-    href: 'mailto:info@jubla-triengen.ch',
+    text: "info@jubla-triengen.ch",
+    href: "mailto:info@jubla-triengen.ch",
   },
   {
     icon: Phone,
-    text: '+41 41 123 45 67',
-    href: 'tel:+41411234567',
+    text: "+41 41 123 45 67",
+    href: "tel:+41411234567",
   },
   {
     icon: MapPin,
-    text: 'Triengen, Luzern',
+    text: "Triengen, Luzern",
   },
 ];
 
 const infoLinks: LinkItem[] = [
-  { label: 'Sommerlager', href: '#' },
-  { label: 'Herbstlager', href: '#' },
-  { label: 'Gruppenstunden', href: '#' },
-  { label: 'Downloads', href: '#' },
-  { label: 'Impressum', href: '/impressum' },
-  { label: 'Datenschutz', href: '/datenschutz' },
+  { label: "Sommerlager", href: "#" },
+  { label: "Herbstlager", href: "#" },
+  { label: "Gruppenstunden", href: "#" },
+  { label: "Downloads", href: "#" },
+  { label: "Impressum", href: "/impressum" },
+  { label: "Datenschutz", href: "/datenschutz" },
 ];
 
 const socialLinks: SocialLink[] = [
-  { icon: Facebook, href: '#', label: 'Facebook' },
-  { icon: Instagram, href: '#', label: 'Instagram' },
+  { icon: Facebook, href: "#", label: "Facebook" },
+  { icon: Instagram, href: "#", label: "Instagram" },
 ];
 
 const footerLinks: LinkItem[] = [
-  { label: 'Datenschutz', href: '#' },
-  { label: 'Impressum', href: '#' },
+  { label: "Datenschutz", href: "#" },
+  { label: "Impressum", href: "#" },
 ];
 
 export default function Footer() {
@@ -67,7 +75,9 @@ export default function Footer() {
           <div>
             <div className="flex items-center gap-2 mb-6">
               <Logo className="w-14 h-14 text-jubla-yellow" />
-              <h4 className="font-amatic text-4xl font-bold">{brandConfig.name}</h4>
+              <h4 className="font-amatic text-4xl font-bold">
+                {brandConfig.name}
+              </h4>
             </div>
             <p className="font-mundial font-light text-gray-300 leading-relaxed">
               {brandConfig.description}
@@ -90,7 +100,9 @@ export default function Footer() {
                         {contact.text}
                       </a>
                     ) : (
-                      <span className="font-mundial font-light text-gray-300">{contact.text}</span>
+                      <span className="font-mundial font-light text-gray-300">
+                        {contact.text}
+                      </span>
                     )}
                   </li>
                 );
@@ -99,7 +111,9 @@ export default function Footer() {
           </div>
 
           <div>
-            <h5 className="font-mundial font-semibold text-lg mb-4">Lager & Infos</h5>
+            <h5 className="font-mundial font-semibold text-lg mb-4">
+              Lager & Infos
+            </h5>
             <ul className="space-y-3">
               {infoLinks.map((link, index) => (
                 <li key={index}>
@@ -115,7 +129,9 @@ export default function Footer() {
           </div>
 
           <div>
-            <h5 className="font-mundial font-semibold text-lg mb-4">Folge uns</h5>
+            <h5 className="font-mundial font-semibold text-lg mb-4">
+              Folge uns
+            </h5>
             <div className="flex gap-4">
               {socialLinks.map((social, index) => {
                 const Icon = social.icon;
@@ -137,7 +153,8 @@ export default function Footer() {
         <div className="border-t border-gray-700 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <p className="font-mundial font-light text-gray-400 text-sm">
-              © {new Date().getFullYear()} {brandConfig.name}. Alle Rechte vorbehalten.
+              © {new Date().getFullYear()} {brandConfig.name}. Alle Rechte
+              vorbehalten.
             </p>
             <div className="flex gap-6">
               {footerLinks.map((link, index) => (

@@ -1,22 +1,22 @@
-import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
-import Header from './components/ui/Header';
-import Footer from './components/ui/Footer';
-import Home from './pages/Home';
-import NotFound from './pages/NotFound';
-import Leaders from './pages/Leaders';
-import LeaderDetail from './pages/LeaderDetail';
-import Activities from './pages/Activities';
-import ActivityDetail from './pages/ActivityDetail';
-import Offerings from './pages/Offerings';
-import OfferingDetail from './pages/OfferingDetail';
-import Posts from './pages/Posts';
-import PostDetail from './pages/PostDetail';
-import About from './pages/About';
-import Gallery from './pages/Gallery';
-import AlbumDetail from './pages/AlbumDetail';
-import Contact from './pages/Contact';
-import Impressum from './pages/Impressum';
-import DataProtection from './pages/DataProtection';
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import Header from "./components/ui/Header";
+import Footer from "./components/ui/Footer";
+import Home from "./pages/Home";
+import NotFound from "./pages/NotFound";
+import Leaders from "./pages/Leaders";
+import LeaderDetail from "./pages/LeaderDetail";
+import Activities from "./pages/Activities";
+import ActivityDetail from "./pages/ActivityDetail";
+import Offerings from "./pages/Offerings";
+import OfferingDetail from "./pages/OfferingDetail";
+import Posts from "./pages/Posts";
+import PostDetail from "./pages/PostDetail";
+import About from "./pages/About";
+import Gallery from "./pages/Gallery";
+import AlbumDetail from "./pages/AlbumDetail";
+import Contact from "./pages/Contact";
+import Impressum from "./pages/Impressum";
+import DataProtection from "./pages/DataProtection";
 
 function App() {
   return (

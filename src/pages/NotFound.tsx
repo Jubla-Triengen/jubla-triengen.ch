@@ -1,6 +1,6 @@
-import { useNavigate } from 'react-router-dom';
-import { ArrowLeft } from 'lucide-react';
-import Button from '../components/ui/Button';
+import { useNavigate } from "react-router-dom";
+import { ArrowLeft } from "lucide-react";
+import Button from "../components/ui/Button";
 
 export default function NotFound() {
   const navigate = useNavigate();
@@ -11,10 +11,10 @@ export default function NotFound() {
         className="absolute inset-0 z-0"
         style={{
           backgroundImage:
-            'url(https://image.jimcdn.com/cdn-cgi/image//app/cms/storage/image/path/sb21156d07b64a771/backgroundarea/ib36b1240ebbc0855/version/1556893189/image.jpg)',
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-          filter: 'grayscale(100%)', // Make it distinct from home
+            "url(https://image.jimcdn.com/cdn-cgi/image//app/cms/storage/image/path/sb21156d07b64a771/backgroundarea/ib36b1240ebbc0855/version/1556893189/image.jpg)",
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          filter: "grayscale(100%)", // Make it distinct from home
         }}
       >
         <div className="absolute inset-0 bg-black/60"></div>
@@ -29,10 +29,15 @@ export default function NotFound() {
             Uups! Diese Seite haben wir wohl im Wald verloren.
           </h2>
           <p className="font-mundial font-light text-xl text-gray-200 mb-12 max-w-2xl mx-auto">
-            Vielleicht hast du dich verlaufen? Keine Sorge, im Lager finden wir immer einen Weg zurück.
+            Vielleicht hast du dich verlaufen? Keine Sorge, im Lager finden wir
+            immer einen Weg zurück.
           </p>
           <div className="flex justify-center">
-            <Button onClick={() => navigate('/')} icon={ArrowLeft} iconPosition="left">
+            <Button
+              onClick={() => navigate("/")}
+              icon={ArrowLeft}
+              iconPosition="left"
+            >
               Zurück zur Startseite
             </Button>
           </div>

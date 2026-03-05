@@ -15,10 +15,11 @@ export interface Post {
 
 export const posts: Post[] = [
   {
-    id: 'jubla-tag-2024',
-    title: 'Rückblick Jubla Tag 2024',
-    date: '10.09.2024',
-    shortDescription: 'Ein toller Tag voller Spiel und Spass liegt hinter uns. Hier ist der Bericht.',
+    id: "jubla-tag-2024",
+    title: "Rückblick Jubla Tag 2024",
+    date: "10.09.2024",
+    shortDescription:
+      "Ein toller Tag voller Spiel und Spass liegt hinter uns. Hier ist der Bericht.",
     longDescription: `
       Am vergangenen Samstag fand der nationale Jubla-Tag statt. Auch wir von der Jubla Triengen waren natürlich mit dabei!
       Unter dem Motto "Lebensfreude" haben wir einen abwechslungsreichen Nachmittag für alle Kinder und Jugendlichen aus der Region organisiert.
@@ -28,11 +29,12 @@ export const posts: Post[] = [
 
       Wir danken allen, die dabei waren und freuen uns schon auf das nächste Jahr!
     `,
-    image: 'https://images.unsplash.com/photo-1526662092594-e98c1e35652b?auto=format&fit=crop&q=80',
+    image:
+      "https://images.unsplash.com/photo-1526662092594-e98c1e35652b?auto=format&fit=crop&q=80",
     attachments: [
-      { name: 'Flyer', url: '#' },
-      { name: 'Fotos', url: '#' }
-    ]
+      { name: "Flyer", url: "#" },
+      { name: "Fotos", url: "#" },
+    ],
   },
   // Add more sample posts if needed
 ];

@@ -1,5 +1,5 @@
-import { Search } from 'lucide-react';
-import { Fragment, ReactNode, useMemo, useState } from 'react';
+import { Search } from "lucide-react";
+import { Fragment, ReactNode, useMemo, useState } from "react";
 
 type SearchableValue = string | number | boolean | null | undefined;
 
@@ -17,15 +17,19 @@ interface SearchableCardGridProps<T> {
 function normalize(value: string): string {
   return value
     .toLocaleLowerCase()
-    .normalize('NFD')
-    .replace(/[\u0300-\u036f]/g, '')
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
     .trim();
 }
 
 function isSubsequence(query: string, target: string): boolean {
   let queryIndex = 0;
 
-  for (let targetIndex = 0; targetIndex < target.length && queryIndex < query.length; targetIndex += 1) {
+  for (
+    let targetIndex = 0;
+    targetIndex < target.length && queryIndex < query.length;
+    targetIndex += 1
+  ) {
     if (query[queryIndex] === target[targetIndex]) {
       queryIndex += 1;
     }
@@ -51,7 +55,11 @@ function flattenValues(value: unknown): SearchableValue[] {
     return [];
   }
 
-  if (typeof value === 'string' || typeof value === 'number' || typeof value === 'boolean') {
+  if (
+    typeof value === "string" ||
+    typeof value === "number" ||
+    typeof value === "boolean"
+  ) {
     return [value];
   }
 
@@ -59,7 +67,7 @@ function flattenValues(value: unknown): SearchableValue[] {
     return value.flatMap(flattenValues);
   }
 
-  if (typeof value === 'object') {
+  if (typeof value === "object") {
     return Object.values(value).flatMap(flattenValues);
   }
 
@@ -71,12 +79,12 @@ export default function SearchableCardGrid<T>({
   getItemKey,
   renderCard,
   getSearchValues,
-  searchPlaceholder = 'Suchen...',
-  emptyResultsText = 'Keine passenden Einträge gefunden.',
-  className = '',
-  gridClassName = 'grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8',
+  searchPlaceholder = "Suchen...",
+  emptyResultsText = "Keine passenden Einträge gefunden.",
+  className = "",
+  gridClassName = "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8",
 }: SearchableCardGridProps<T>) {
-  const [searchTerm, setSearchTerm] = useState('');
+  const [searchTerm, setSearchTerm] = useState("");
 
   const normalizedQuery = normalize(searchTerm);
   const queryTokens = normalizedQuery.split(/\s+/).filter(Boolean);
@@ -87,12 +95,16 @@ export default function SearchableCardGrid<T>({
     }
 
     return items.filter((item) => {
-      const values = getSearchValues ? getSearchValues(item) : flattenValues(item);
+      const values = getSearchValues
+        ? getSearchValues(item)
+        : flattenValues(item);
       const normalizedValues = values
-        .map((value) => normalize(String(value ?? '')))
+        .map((value) => normalize(String(value ?? "")))
         .filter(Boolean);
 
-      return queryTokens.every((token) => normalizedValues.some((candidate) => fuzzyMatch(token, candidate)));
+      return queryTokens.every((token) =>
+        normalizedValues.some((candidate) => fuzzyMatch(token, candidate))
+      );
     });
   }, [getSearchValues, items, queryTokens]);
 
@@ -116,7 +128,9 @@ export default function SearchableCardGrid<T>({
           ))}
         </div>
       ) : (
-        <p className="text-center font-mundial font-light text-gray-500 py-10">{emptyResultsText}</p>
+        <p className="text-center font-mundial font-light text-gray-500 py-10">
+          {emptyResultsText}
+        </p>
       )}
     </div>
   );

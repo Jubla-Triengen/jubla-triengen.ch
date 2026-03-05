@@ -1,17 +1,19 @@
-import { useParams, Link } from 'react-router-dom';
-import { activities } from '../data/activities';
-import DetailPageLayout from '../components/ui/DetailPageLayout';
-import { Calendar, Download } from 'lucide-react';
+import { useParams, Link } from "react-router-dom";
+import { activities } from "../data/activities";
+import DetailPageLayout from "../components/ui/DetailPageLayout";
+import { Calendar, Download } from "lucide-react";
 
 export default function ActivityDetail() {
   const { id } = useParams<{ id: string }>();
-  const activity = activities.find(a => a.id === id);
+  const activity = activities.find((a) => a.id === id);
 
   if (!activity) {
     return (
       <div className="min-h-screen pt-32 pb-16 px-4 text-center">
         <h2 className="text-2xl font-bold mb-4">Aktivität nicht gefunden</h2>
-         <Link to="/activities" className="text-blue-600 hover:underline">Zurück zur Übersicht</Link>
+        <Link to="/activities" className="text-blue-600 hover:underline">
+          Zurück zur Übersicht
+        </Link>
       </div>
     );
   }
@@ -24,8 +26,8 @@ export default function ActivityDetail() {
         subtitle: activity.date,
       }}
       backLink={{
-        to: '/activities',
-        label: 'Zurück zur Übersicht',
+        to: "/activities",
+        label: "Zurück zur Übersicht",
       }}
     >
       <div className="flex items-center gap-2 text-yellow-500 mb-6">

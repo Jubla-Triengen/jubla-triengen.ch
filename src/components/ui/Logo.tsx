@@ -51,7 +51,7 @@ const Logo = forwardRef<SVGSVGElement, LogoProps>(
         </g>
       </svg>
     );
-  },
+  }
 );
 
 Logo.displayName = "Logo";

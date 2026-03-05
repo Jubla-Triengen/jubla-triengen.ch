@@ -1,6 +1,6 @@
-import { ReactNode } from 'react';
-import { LucideIcon } from 'lucide-react';
-import Button from './Button';
+import { ReactNode } from "react";
+import { LucideIcon } from "lucide-react";
+import Button from "./Button";
 
 interface ContentImageSectionProps {
   id?: string;
@@ -15,7 +15,7 @@ interface ContentImageSectionProps {
     icon?: LucideIcon;
     action: () => void;
   };
-  imagePosition?: 'left' | 'right';
+  imagePosition?: "left" | "right";
   backgroundColor?: string;
   decorativeCircle?: boolean;
   children?: ReactNode;
@@ -27,19 +27,19 @@ export default function ContentImageSection({
   paragraphs,
   image,
   button,
-  imagePosition = 'right',
-  backgroundColor = 'bg-gradient-to-b from-gray-50 to-white',
+  imagePosition = "right",
+  backgroundColor = "bg-gradient-to-b from-gray-50 to-white",
   decorativeCircle = true,
   children,
 }: ContentImageSectionProps) {
-  const contentOrder = imagePosition === 'left' ? 'lg:order-2' : '';
-  const imageOrder = imagePosition === 'left' ? 'lg:order-1' : '';
+  const contentOrder = imagePosition === "left" ? "lg:order-2" : "";
+  const imageOrder = imagePosition === "left" ? "lg:order-1" : "";
 
   return (
     <section id={id} className={`py-24 ${backgroundColor}`}>
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-stretch">
-          <div className={contentOrder + ' h-full'}>
+          <div className={contentOrder + " h-full"}>
             <h2 className="font-amatic text-6xl sm:text-7xl font-bold text-black mb-6">
               {title}
             </h2>
@@ -47,7 +47,11 @@ export default function ContentImageSection({
               <p
                 key={index}
                 className={`font-mundial font-light text-lg text-gray-700 leading-relaxed ${
-                  index === paragraphs.length - 1 ? (button ? 'mb-8' : '') : 'mb-6'
+                  index === paragraphs.length - 1
+                    ? button
+                      ? "mb-8"
+                      : ""
+                    : "mb-6"
                 }`}
               >
                 {paragraph}

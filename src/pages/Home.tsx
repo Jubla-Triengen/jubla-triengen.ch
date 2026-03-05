@@ -1,52 +1,54 @@
-import HeroSection from '../components/sections/HeroSection';
-import FeatureCard from '../components/ui/FeatureCard';
-import ContentImageSection from '../components/ui/ContentImageSection';
-import CardSection from '../components/ui/CardSection';
-import EventCard from '../components/ui/EventCard';
-import NewsCard from '../components/ui/NewsCard';
-import { Tent, Mountain, TreePine, ArrowRight } from 'lucide-react';
-import { activities } from '../data/activities';
-import { posts } from '../data/posts';
+import HeroSection from "../components/sections/HeroSection";
+import FeatureCard from "../components/ui/FeatureCard";
+import ContentImageSection from "../components/ui/ContentImageSection";
+import CardSection from "../components/ui/CardSection";
+import EventCard from "../components/ui/EventCard";
+import NewsCard from "../components/ui/NewsCard";
+import { Tent, Mountain, TreePine, ArrowRight } from "lucide-react";
+import { activities } from "../data/activities";
+import { posts } from "../data/posts";
 
 const features = [
   {
     icon: Tent,
-    title: 'Gruppenstunden',
-    subtitle: 'Spiel & Spass',
-    description: 'Regelmässige Treffen voller Spiele, Kreativität und Gemeinschaft.',
+    title: "Gruppenstunden",
+    subtitle: "Spiel & Spass",
+    description:
+      "Regelmässige Treffen voller Spiele, Kreativität und Gemeinschaft.",
   },
   {
     icon: Mountain,
-    title: 'Ferienlager',
-    subtitle: 'Lagerabenteuer',
-    description: 'Unvergessliche Wochen in der Natur mit Lagerfeuer und Abenteuer.',
+    title: "Ferienlager",
+    subtitle: "Lagerabenteuer",
+    description:
+      "Unvergessliche Wochen in der Natur mit Lagerfeuer und Abenteuer.",
   },
   {
     icon: TreePine,
-    title: 'Events & Anlässe',
-    subtitle: 'Gemeinsam erleben',
-    description: 'Besondere Aktivitäten und Feste durchs ganze Jahr.',
+    title: "Events & Anlässe",
+    subtitle: "Gemeinsam erleben",
+    description: "Besondere Aktivitäten und Feste durchs ganze Jahr.",
   },
 ];
 
 const welcomeContent = {
-  id: 'about',
-  title: 'Willkommen bei der Jubla Triengen',
+  id: "about",
+  title: "Willkommen bei der Jubla Triengen",
   paragraphs: [
-    'Die Jubla Triengen ist mehr als nur eine Jugendorganisation. Wir sind eine Gemeinschaft von Abenteurern, die gemeinsam die Natur entdecken, Freundschaften fürs Leben schliessen und unvergessliche Erinnerungen schaffen.',
-    'Bei uns stehen Spass, Kreativität und das gemeinsame Erleben im Mittelpunkt. Ob bei wöchentlichen Gruppenstunden, aufregenden Ferienlagern oder besonderen Events – bei der Jubla ist für jedes Kind etwas dabei.',
+    "Die Jubla Triengen ist mehr als nur eine Jugendorganisation. Wir sind eine Gemeinschaft von Abenteurern, die gemeinsam die Natur entdecken, Freundschaften fürs Leben schliessen und unvergessliche Erinnerungen schaffen.",
+    "Bei uns stehen Spass, Kreativität und das gemeinsame Erleben im Mittelpunkt. Ob bei wöchentlichen Gruppenstunden, aufregenden Ferienlagern oder besonderen Events – bei der Jubla ist für jedes Kind etwas dabei.",
   ],
   image: {
-    src: 'https://image.jimcdn.com/app/cms/image/transf/none/path/sb21156d07b64a771/image/iaadd36084aabac03/version/1741809698/image.jpg',
-    alt: 'Kinder beim Wandern',
+    src: "https://image.jimcdn.com/app/cms/image/transf/none/path/sb21156d07b64a771/image/iaadd36084aabac03/version/1741809698/image.jpg",
+    alt: "Kinder beim Wandern",
   },
   button: {
-    text: 'Unsere Angebote',
+    text: "Unsere Angebote",
     icon: ArrowRight,
     action: () => {
-      const element = document.getElementById('angebote');
+      const element = document.getElementById("angebote");
       if (element) {
-        element.scrollIntoView({ behavior: 'smooth' });
+        element.scrollIntoView({ behavior: "smooth" });
       }
     },
   },
@@ -82,7 +84,7 @@ const Home = () => {
         orientation="horizontal"
         backgroundColor="white"
         button={{
-          text: 'Zum Programm',
+          text: "Zum Programm",
           icon: ArrowRight,
         }}
       >
@@ -102,7 +104,7 @@ const Home = () => {
         orientation="vertical"
         backgroundColor="gradient"
         button={{
-          text: 'Zu den Neuigkeiten',
+          text: "Zu den Neuigkeiten",
           icon: ArrowRight,
         }}
       >

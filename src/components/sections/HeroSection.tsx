@@ -1,11 +1,11 @@
-import { ArrowRight } from 'lucide-react';
-import Button from '../ui/Button';
+import { ArrowRight } from "lucide-react";
+import Button from "../ui/Button";
 
 export default function HeroSection() {
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id);
     if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
+      element.scrollIntoView({ behavior: "smooth" });
     }
   };
 
@@ -15,9 +15,9 @@ export default function HeroSection() {
         className="absolute inset-0 z-0"
         style={{
           backgroundImage:
-            'url(https://image.jimcdn.com/cdn-cgi/image//app/cms/storage/image/path/sb21156d07b64a771/backgroundarea/ib36b1240ebbc0855/version/1556893189/image.jpg)',
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
+            "url(https://image.jimcdn.com/cdn-cgi/image//app/cms/storage/image/path/sb21156d07b64a771/backgroundarea/ib36b1240ebbc0855/version/1556893189/image.jpg)",
+          backgroundSize: "cover",
+          backgroundPosition: "center",
         }}
       >
         <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/40 to-transparent"></div>
@@ -35,7 +35,7 @@ export default function HeroSection() {
           <p className="font-mundial font-light text-xl sm:text-2xl text-gray-200 mb-8 max-w-2xl">
             Erlebe unvergessliche Momente in der Natur mit der Jubla Triengen.
           </p>
-          <Button onClick={() => scrollToSection('about')} icon={ArrowRight}>
+          <Button onClick={() => scrollToSection("about")} icon={ArrowRight}>
             Mehr erfahren
           </Button>
         </div>

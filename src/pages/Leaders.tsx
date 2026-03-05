@@ -1,16 +1,15 @@
-
-import { Link } from 'react-router-dom';
-import Card from '../components/ui/Card';
-import PageHero from '../components/ui/PageHero';
-import PageDescription from '../components/ui/PageDescription';
-import PageContent from '../components/ui/PageContent';
-import SearchableCardGrid from '../components/ui/SearchableCardGrid';
-import { leaders } from '../data/leaders';
+import { Link } from "react-router-dom";
+import Card from "../components/ui/Card";
+import PageHero from "../components/ui/PageHero";
+import PageDescription from "../components/ui/PageDescription";
+import PageContent from "../components/ui/PageContent";
+import SearchableCardGrid from "../components/ui/SearchableCardGrid";
+import { leaders } from "../data/leaders";
 
 export default function Leaders() {
   return (
     <div className="min-h-screen bg-gray-50">
-      <PageHero 
+      <PageHero
         image="https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80"
         title="Unser Leitungsteam"
         subtitle="Gemeinsam für unvergessliche Erlebnisse"
@@ -36,10 +35,7 @@ export default function Leaders() {
           searchPlaceholder="Leitungsperson suchen..."
           emptyResultsText="Keine passenden Leitungspersonen gefunden."
           renderCard={(leader) => (
-            <Link 
-              to={`/leaders/${leader.id}`} 
-              className="block h-full group"
-            >
+            <Link to={`/leaders/${leader.id}`} className="block h-full group">
               <div className="h-full transition-transform duration-300 group-hover:-translate-y-2">
                 <Card
                   image={leader.image}

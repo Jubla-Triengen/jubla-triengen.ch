@@ -8,9 +8,10 @@ export interface Offering {
 
 export const offerings: Offering[] = [
   {
-    id: 'gruppenstunden',
-    title: 'Gruppenstunden',
-    shortDescription: 'Wöchentliche Treffen in altersspezifischen Gruppen voller Spiel und Spass.',
+    id: "gruppenstunden",
+    title: "Gruppenstunden",
+    shortDescription:
+      "Wöchentliche Treffen in altersspezifischen Gruppen voller Spiel und Spass.",
     longDescription: `
       Die Gruppenstunde ist das Herzstück der Jubla. Kinder und Jugendliche gleichen Alters treffen sich regelmässig, meist einmal pro Woche oder alle zwei Wochen, in ihrer Gruppe.
       
@@ -20,12 +21,14 @@ export const offerings: Offering[] = [
       
       Interessiert an einer Schnuppergruppenstunde? Melde dich bei uns!
     `,
-    image: 'https://images.unsplash.com/photo-1472162072942-cd5147eb3902?auto=format&fit=crop&q=80'
+    image:
+      "https://images.unsplash.com/photo-1472162072942-cd5147eb3902?auto=format&fit=crop&q=80",
   },
   {
-    id: 'lager',
-    title: 'Lager',
-    shortDescription: 'Unvergessliche Erlebnisse in unseren Zelt- und Hauslagern.',
+    id: "lager",
+    title: "Lager",
+    shortDescription:
+      "Unvergessliche Erlebnisse in unseren Zelt- und Hauslagern.",
     longDescription: `
       Unsere Lager sind die Highlights des Jahres! Wir führen in der Regel ein Sommerlager und oft auch ein Pfingst- oder Winterlager durch.
       
@@ -35,12 +38,14 @@ export const offerings: Offering[] = [
       
       Es ist eine Zeit ohne Eltern, in der man selbstständiger wird und die Gemeinschaft intensiv erlebt. Das Lageressen aus der grossen Küche und die Nächte im Schlafsack gehören einfach dazu.
     `,
-    image: 'https://images.unsplash.com/photo-1523987355523-c7b5b0dd90a7?auto=format&fit=crop&q=80'
+    image:
+      "https://images.unsplash.com/photo-1523987355523-c7b5b0dd90a7?auto=format&fit=crop&q=80",
   },
   {
-    id: 'scharanlaesse',
-    title: 'Scharanlässe',
-    shortDescription: 'Gemeinsame Aktivitäten mit der ganzen Schar - Gross und Klein zusammen.',
+    id: "scharanlaesse",
+    title: "Scharanlässe",
+    shortDescription:
+      "Gemeinsame Aktivitäten mit der ganzen Schar - Gross und Klein zusammen.",
     longDescription: `
       Neben den Gruppenstunden und Lagern gibt es die Scharanlässe. Hier trifft sich die ganze Jubla-Schar, von den jüngsten Wölfen bis zu den ältesten Leitern.
       
@@ -50,12 +55,14 @@ export const offerings: Offering[] = [
       
       Es sind oft Anlässe, zu denen auch Eltern und Freunde eingeladen sind, um einen Einblick in unser Jubla-Leben zu bekommen.
     `,
-    image: 'https://images.unsplash.com/photo-1511632765486-a01980e01a18?auto=format&fit=crop&q=80'
+    image:
+      "https://images.unsplash.com/photo-1511632765486-a01980e01a18?auto=format&fit=crop&q=80",
   },
   {
-    id: 'aufnahme',
-    title: 'Aufnahme',
-    shortDescription: 'Der feierliche Moment, wenn du offiziell Teil unserer Jubla-Familie wirst.',
+    id: "aufnahme",
+    title: "Aufnahme",
+    shortDescription:
+      "Der feierliche Moment, wenn du offiziell Teil unserer Jubla-Familie wirst.",
     longDescription: `
       Die Aufnahme ist ein spezieller Anlass, bei dem neue Mitglieder feierlich in die Schar aufgenommen werden.
       
@@ -65,6 +72,7 @@ export const offerings: Offering[] = [
       
       Nach der Aufnahme bist du offiziell ein Jublaner oder eine Jublanerin und trägst den "Jubla-Spirit" mit dir!
     `,
-    image: 'https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&q=80'
-  }
+    image:
+      "https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&q=80",
+  },
 ];

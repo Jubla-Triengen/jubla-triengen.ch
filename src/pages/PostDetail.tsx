@@ -1,17 +1,19 @@
-import { useParams, Link } from 'react-router-dom';
-import { posts } from '../data/posts';
-import DetailPageLayout from '../components/ui/DetailPageLayout';
-import { Calendar, Download } from 'lucide-react';
+import { useParams, Link } from "react-router-dom";
+import { posts } from "../data/posts";
+import DetailPageLayout from "../components/ui/DetailPageLayout";
+import { Calendar, Download } from "lucide-react";
 
 export default function PostDetail() {
   const { id } = useParams<{ id: string }>();
-  const post = posts.find(p => p.id === id);
+  const post = posts.find((p) => p.id === id);
 
   if (!post) {
     return (
       <div className="min-h-screen pt-32 pb-16 px-4 text-center">
         <h2 className="text-2xl font-bold mb-4">Beitrag nicht gefunden</h2>
-         <Link to="/posts" className="text-blue-600 hover:underline">Zurück zur Übersicht</Link>
+        <Link to="/posts" className="text-blue-600 hover:underline">
+          Zurück zur Übersicht
+        </Link>
       </div>
     );
   }
@@ -24,8 +26,8 @@ export default function PostDetail() {
         subtitle: post.date,
       }}
       backLink={{
-        to: '/posts',
-        label: 'Zurück zur Übersicht',
+        to: "/posts",
+        label: "Zurück zur Übersicht",
       }}
     >
       <div className="flex items-center gap-2 text-yellow-500 mb-6">
