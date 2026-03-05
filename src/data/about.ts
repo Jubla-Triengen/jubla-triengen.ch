@@ -36,7 +36,7 @@ export const aboutPageData = {
       },
       button: {
         text: "Lerne unser Leitungsteam kennen",
-        link: "/leaders",
+        link: "/leiter",
       },
       imagePosition: "right",
     },

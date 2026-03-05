@@ -1,14 +1,11 @@
-import { useNavigate } from "react-router-dom";
 import { posts } from "../data/posts";
-import EventCard from "../components/ui/EventCard";
 import PageHero from "../components/ui/PageHero";
 import PageDescription from "../components/ui/PageDescription";
 import PageContent from "../components/ui/PageContent";
 import SearchableCardGrid from "../components/ui/SearchableCardGrid";
+import NewsCard from "../components/ui/NewsCard";
 
 export default function Posts() {
-  const navigate = useNavigate();
-
   return (
     <div className="min-h-screen bg-gray-50">
       <PageHero
@@ -22,6 +19,7 @@ export default function Posts() {
         />
         <SearchableCardGrid
           items={posts}
+          gridClassName=""
           getItemKey={(post) => post.id}
           getSearchValues={(post) => [
             post.title,
@@ -32,12 +30,13 @@ export default function Posts() {
           searchPlaceholder="Beitrag suchen..."
           emptyResultsText="Keine passenden Beiträge gefunden."
           renderCard={(post) => (
-            <EventCard
+            <NewsCard
+              key={post.id}
+              id={post.id}
               image={post.image}
               title={post.title}
               date={post.date}
-              description={post.shortDescription}
-              onClick={() => navigate(`/posts/${post.id}`)}
+              excerpt={post.shortDescription}
             />
           )}
         />

@@ -1,21 +1,29 @@
 import { Calendar } from "lucide-react";
 import Card from "./Card";
+import { useNavigate } from "react-router-dom";
 
 interface EventCardProps {
+  id: string;
   image: string;
   title: string;
   date: string;
   description: string;
-  onClick?: () => void;
 }
 
 export default function EventCard({
+  id,
   image,
   title,
   date,
   description,
-  onClick,
 }: EventCardProps) {
+  const navigate = useNavigate();
+
+  const onClick = () => {
+    navigate(`/anlässe/${id}`);
+  };
+
+
   return (
     <Card
       image={image}

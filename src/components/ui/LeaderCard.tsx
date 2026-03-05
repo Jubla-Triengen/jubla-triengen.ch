@@ -1,25 +1,25 @@
-import { ArrowRight, Calendar, Key } from "lucide-react";
+import { ArrowRight, User } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 
-interface NewsCardProps {
+interface LeaderCardProps {
   id: string;
   image: string;
-  title: string;
-  date: string;
-  excerpt: string;
+  name: string;
+  role: string;
+  description: string;
 }
 
-export default function NewsCard({
+export default function LeaderCard({
+  id,
   image,
-  title,
-  date,
-  excerpt,
-  id
-}: NewsCardProps) {
+  name,
+  role,
+  description,
+}: LeaderCardProps) {
   const navigate = useNavigate();
 
   const onClick = () => {
-    navigate(`/posts/${id}`); 
+    navigate(`/leiter/${id}`);
   };
 
   return (
@@ -27,21 +27,28 @@ export default function NewsCard({
       <div className="sm:w-1/3 h-48 sm:h-auto overflow-hidden">
         <img
           src={image}
-          alt={title}
+          alt={name}
           className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
         />
       </div>
       <div className="sm:w-2/3 p-6">
         <div className="flex items-center gap-2 text-gray-500 mb-3">
-          <Calendar className="w-4 h-4" />
-          <span className="font-mundial font-light text-sm">{date}</span>
+          <User className="w-4 h-4" />
+          <span className="font-mundial font-light text-sm uppercase tracking-wider text-jubla-blue font-medium">
+            {role}
+          </span>
         </div>
         <h3 className="font-mundial font-semibold text-2xl text-black mb-3">
-          {title}
+          {name}
         </h3>
-        <p className="font-mundial font-light text-gray-600 mb-4">{excerpt}</p>
-        <button className="text-jubla-yellow hover:text-jubla-yellow-dark font-mundial font-medium flex items-center gap-2 group" onClick={onClick}>
-          Weiterlesen
+        <p className="font-mundial font-light text-gray-600 mb-4">
+          {description}
+        </p>
+        <button
+          className="text-jubla-yellow hover:text-jubla-yellow-dark font-mundial font-medium flex items-center gap-2 group"
+          onClick={onClick}
+        >
+          Mehr erfahren
           <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
         </button>
       </div>

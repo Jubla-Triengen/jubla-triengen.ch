@@ -52,7 +52,7 @@ export default function Gallery() {
           onClick={(index) => {
             const album = albums[index];
             if (album) {
-              navigate(`/gallery/${album.id}`);
+              navigate(`/galerie/${album.id}`);
             }
           }}
         />

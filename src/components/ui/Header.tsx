@@ -15,10 +15,11 @@ const brandConfig = {
 };
 
 const navItems: NavItem[] = [
-  { label: "Über uns", sectionId: "about", path: "/about" },
+  { label: "Über uns", sectionId: "about", path: "/über-uns" },
   { label: "Angebote", path: "/angebote" },
-  { label: "Programm", sectionId: "highlights", path: "/activities" },
-  { label: "News", path: "/posts" },
+  { label: "Anlässe", sectionId: "highlights", path: "/anlässe" },
+  { label: "Neues aus der Jubla", path: "/posts" },
+  { label: "Galerie", path: "/galerie" },
 ];
 
 export default function Header() {
@@ -29,7 +30,7 @@ export default function Header() {
 
   const ctaButton = {
     label: "Mitmachen",
-    action: () => navigate("/contact"),
+    action: () => navigate("/kontakt"),
   };
 
   useEffect(() => {

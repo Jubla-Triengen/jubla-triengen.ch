@@ -21,7 +21,7 @@ export default function LeaderDetail() {
     return (
       <div className="min-h-screen pt-32 pb-16 px-4 text-center">
         <h2 className="text-2xl font-bold mb-4">Leiter nicht gefunden</h2>
-        <Link to="/leaders" className="text-blue-600 hover:underline">
+        <Link to="/leiter" className="text-blue-600 hover:underline">
           Zurück zur Übersicht
         </Link>
       </div>
@@ -36,7 +36,7 @@ export default function LeaderDetail() {
         subtitle: leader.role,
       }}
       backLink={{
-        to: "/leaders",
+        to: "/leiter",
         label: "Zurück zur Übersicht",
       }}
       contentMaxWidthClassName="max-w-5xl"

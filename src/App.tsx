@@ -1,6 +1,7 @@
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import Header from "./components/ui/Header";
 import Footer from "./components/ui/Footer";
+import ScrollToTop from "./components/ui/ScrollToTop";
 import Home from "./pages/Home";
 import NotFound from "./pages/NotFound";
 import Leaders from "./pages/Leaders";
@@ -21,6 +22,7 @@ import DataProtection from "./pages/DataProtection";
 function App() {
   return (
     <BrowserRouter>
+      <ScrollToTop />
       <div className="min-h-screen">
         <Header />
         <Routes>

@@ -1,9 +1,8 @@
-import { Link } from "react-router-dom";
-import Card from "../components/ui/Card";
 import PageHero from "../components/ui/PageHero";
 import PageDescription from "../components/ui/PageDescription";
 import PageContent from "../components/ui/PageContent";
 import SearchableCardGrid from "../components/ui/SearchableCardGrid";
+import LeaderCard from "../components/ui/LeaderCard";
 import { leaders } from "../data/leaders";
 
 export default function Leaders() {
@@ -35,21 +34,13 @@ export default function Leaders() {
           searchPlaceholder="Leitungsperson suchen..."
           emptyResultsText="Keine passenden Leitungspersonen gefunden."
           renderCard={(leader) => (
-            <Link to={`/leaders/${leader.id}`} className="block h-full group">
-              <div className="h-full transition-transform duration-300 group-hover:-translate-y-2">
-                <Card
-                  image={leader.image}
-                  title={leader.name}
-                  subtitle={
-                    <span className="text-jubla-blue font-medium uppercase tracking-wider text-sm">
-                      {leader.role}
-                    </span>
-                  }
-                >
-                  {leader.description}
-                </Card>
-              </div>
-            </Link>
+            <LeaderCard
+              id={leader.id}
+              image={leader.image}
+              name={leader.name}
+              role={leader.role}
+              description={leader.description}
+            />
           )}
         />
       </PageContent>

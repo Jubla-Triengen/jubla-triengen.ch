@@ -6,6 +6,7 @@ import {
   MapPin,
   LucideIcon,
 } from "lucide-react";
+import { Link } from "react-router-dom";
 import { Logo } from "./Logo";
 
 interface ContactItem {
@@ -49,22 +50,20 @@ const contactInfo: ContactItem[] = [
 ];
 
 const infoLinks: LinkItem[] = [
-  { label: "Sommerlager", href: "#" },
-  { label: "Herbstlager", href: "#" },
-  { label: "Gruppenstunden", href: "#" },
-  { label: "Downloads", href: "#" },
-  { label: "Impressum", href: "/impressum" },
-  { label: "Datenschutz", href: "/datenschutz" },
+  { label: "Angebote", href: "/angebote" },
+  { label: "Anlässe", href: "/anlässe" },
+  { label: "News", href: "/posts" },
+  { label: "Über uns", href: "/über-uns" },
 ];
 
 const socialLinks: SocialLink[] = [
-  { icon: Facebook, href: "#", label: "Facebook" },
-  { icon: Instagram, href: "#", label: "Instagram" },
+  { icon: Facebook, href: "https://www.facebook.com/jublatriengen", label: "Facebook" },
+  { icon: Instagram, href: "https://www.instagram.com/jublatriengen/", label: "Instagram" },
 ];
 
 const footerLinks: LinkItem[] = [
-  { label: "Datenschutz", href: "#" },
-  { label: "Impressum", href: "#" },
+  { label: "Datenschutz", href: "/datenschutz" },
+  { label: "Impressum", href: "/impressum" },
 ];
 
 export default function Footer() {
@@ -117,12 +116,12 @@ export default function Footer() {
             <ul className="space-y-3">
               {infoLinks.map((link, index) => (
                 <li key={index}>
-                  <a
-                    href={link.href}
+                  <Link
+                    to={link.href}
                     className="font-mundial font-light text-gray-300 hover:text-jubla-yellow transition-colors"
                   >
                     {link.label}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -158,13 +157,13 @@ export default function Footer() {
             </p>
             <div className="flex gap-6">
               {footerLinks.map((link, index) => (
-                <a
+                <Link
                   key={index}
-                  href={link.href}
+                  to={link.href}
                   className="font-mundial font-light text-gray-400 hover:text-jubla-yellow text-sm transition-colors"
                 >
                   {link.label}
-                </a>
+                </Link>
               ))}
             </div>
           </div>
