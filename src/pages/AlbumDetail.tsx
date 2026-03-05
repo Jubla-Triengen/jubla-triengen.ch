@@ -31,7 +31,7 @@ export default function AlbumDetail() {
       />
       <div className="max-w-7xl mx-auto px-4 py-8">
         <button
-          onClick={() => navigate("/gallery")}
+          onClick={() => navigate("/galerie")}
           className="inline-flex items-center text-gray-500 hover:text-blue-600 mb-8 transition-colors"
         >
           <ArrowLeft className="w-4 h-4 mr-2" /> Back to Gallery
