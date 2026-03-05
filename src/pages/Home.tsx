@@ -60,8 +60,6 @@ const Home = () => {
   return (
     <main>
       <HeroSection />
-      
-      {/* Feature Cards */}
       <section className="relative -mt-20 z-20">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -77,11 +75,7 @@ const Home = () => {
           </div>
         </div>
       </section>
-
-      {/* Welcome Section */}
       <ContentImageSection {...welcomeContent} />
-
-      {/* Highlights Section */}
       <CardSection
         id="highlights"
         title="Unsere nächsten Highlights"
@@ -102,8 +96,6 @@ const Home = () => {
           />
         ))}
       </CardSection>
-
-      {/* News Section */}
       <CardSection
         id="news"
         title="Neues aus der Jubla"
