@@ -14,13 +14,11 @@ export interface AboutSection {
   backgroundColor?: string;
 }
 
-export const aboutPageData = {
-  hero: {
-    image:
-      "https://images.unsplash.com/photo-1472162072942-cd5147eb3902?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80",
-    title: "Über die Jubla",
-    subtitle: "Gemeinschaft, Abenteuer und unvergessliche Momente",
-  },
+export interface AboutPageData {
+  sections: AboutSection[];
+}
+
+export const aboutPageData: AboutPageData = {
   sections: [
     {
       id: "what-is-jubla",
@@ -69,5 +67,5 @@ export const aboutPageData = {
       },
       imagePosition: "right",
     },
-  ] as AboutSection[],
+  ],
 };

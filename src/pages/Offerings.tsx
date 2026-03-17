@@ -5,25 +5,18 @@ import ContentImageSection from "../components/ui/ContentImageSection";
 import { ArrowRight } from "lucide-react";
 import PageDescription from "../components/ui/PageDescription";
 import PageContent from "../components/ui/PageContent";
+import { getPageConfig } from "../data/pages";
 
 export default function Offerings() {
   const navigate = useNavigate();
+  const page = getPageConfig("offerings");
 
   return (
     <div className="bg-white">
-      <PageHero
-        image="https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&q=80"
-        title="Unsere Angebote"
-        subtitle="Entdecke die Vielfalt der Jubla Triengen"
-      />
+      {page.hero && <PageHero {...page.hero} />}
 
       <PageContent wide={true}>
-        <PageDescription
-          title="Was wir bieten"
-          description="Die Jubla Triengen bietet ein vielfältiges Programm für Kinder und Jugendliche. 
-            Von wöchentlichen Gruppenstunden bis zu unvergesslichen Lagern ist für jeden etwas dabei.
-            Tauche ein in unsere Welt und entdecke, was die Jubla so einzigartig macht."
-        />
+        {page.description && <PageDescription {...page.description} />}
 
         <div className="flex flex-col">
           {offerings.map((offering, index) => (

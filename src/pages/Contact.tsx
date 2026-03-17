@@ -3,13 +3,15 @@ import PageHero from "../components/ui/PageHero";
 import ContentImageSection from "../components/ui/ContentImageSection";
 import { contactPageData } from "../data/contact";
 import { Mail, MapPin } from "lucide-react";
+import { getPageConfig } from "../data/pages";
+import type { ContactDetails } from "../data/contact";
 
 export default function Contact() {
   const navigate = useNavigate();
-  const { hero, sections } = contactPageData;
+  const page = getPageConfig("contact");
+  const { sections } = contactPageData;
 
-  // Helper to render contact details if they exist
-  const renderContactDetails = (details: any) => {
+  const renderContactDetails = (details?: ContactDetails) => {
     if (!details) return null;
     return (
       <div className="mt-8 space-y-4 mb-8">
@@ -32,7 +34,7 @@ export default function Contact() {
               <MapPin className="w-6 h-6 text-black" />
             </div>
             <div className="font-mundial text-lg text-gray-700">
-              {details.address.map((line: string, i: number) => (
+              {details.address.map((line, i) => (
                 <div key={i}>{line}</div>
               ))}
             </div>
@@ -44,11 +46,7 @@ export default function Contact() {
 
   return (
     <div className="min-h-screen bg-gray-50">
-      <PageHero
-        title={hero.title}
-        subtitle={hero.subtitle}
-        image={hero.image}
-      />
+      {page.hero && <PageHero {...page.hero} />}
 
       {sections.map((section, index) => (
         <ContentImageSection
@@ -71,12 +69,11 @@ export default function Contact() {
                 }
               : undefined
           }
-          imagePosition={section.imagePosition as "left" | "right"}
+          imagePosition={section.imagePosition}
           backgroundColor={section.backgroundColor}
           decorativeCircle={index % 2 === 0}
         >
-          {(section as any).contactDetails &&
-            renderContactDetails((section as any).contactDetails)}
+          {renderContactDetails(section.contactDetails)}
         </ContentImageSection>
       ))}
     </div>

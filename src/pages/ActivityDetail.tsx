@@ -2,17 +2,22 @@ import { useParams, Link } from "react-router-dom";
 import { activities } from "../data/activities";
 import DetailPageLayout from "../components/ui/DetailPageLayout";
 import { Calendar, Download } from "lucide-react";
+import { activityDetailContent } from "../data/activityDetail";
+import { getPageConfig } from "../data/pages";
 
 export default function ActivityDetail() {
   const { id } = useParams<{ id: string }>();
   const activity = activities.find((a) => a.id === id);
+  const page = getPageConfig("activityDetail");
 
   if (!activity) {
     return (
       <div className="min-h-screen pt-32 pb-16 px-4 text-center">
-        <h2 className="text-2xl font-bold mb-4">Aktivität nicht gefunden</h2>
+        <h2 className="text-2xl font-bold mb-4">
+          {activityDetailContent.notFoundTitle}
+        </h2>
         <Link to="/anlässe" className="text-blue-600 hover:underline">
-          Zurück zur Übersicht
+          {activityDetailContent.backLabel}
         </Link>
       </div>
     );
@@ -21,13 +26,13 @@ export default function ActivityDetail() {
   return (
     <DetailPageLayout
       hero={{
-        image: activity.image,
+        image: activity.image || page.hero?.image || "",
         title: activity.title,
-        subtitle: activity.date,
+        subtitle: activity.date || page.hero?.subtitle,
       }}
       backLink={{
         to: "/anlässe",
-        label: "Zurück zur Übersicht",
+        label: activityDetailContent.backLabel,
       }}
     >
       <div className="flex items-center gap-2 text-yellow-500 mb-6">
@@ -45,7 +50,9 @@ export default function ActivityDetail() {
 
       {activity.attachments.length > 0 && (
         <div className="border-t border-gray-100 pt-8">
-          <h3 className="text-xl font-bold mb-6">Downloads & Infos</h3>
+          <h3 className="text-xl font-bold mb-6">
+            {activityDetailContent.downloadsTitle}
+          </h3>
           <div className="grid gap-4 sm:grid-cols-2">
             {activity.attachments.map((file, index) => (
               <a
@@ -60,7 +67,9 @@ export default function ActivityDetail() {
                   <span className="font-medium text-gray-900 block group-hover:text-blue-700">
                     {file.name}
                   </span>
-                  <span className="text-sm text-gray-500">Download</span>
+                  <span className="text-sm text-gray-500">
+                    {activityDetailContent.downloadLabel}
+                  </span>
                 </div>
               </a>
             ))}

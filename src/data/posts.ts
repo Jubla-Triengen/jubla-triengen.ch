@@ -33,7 +33,7 @@ export const posts: Post[] = [
       "https://images.unsplash.com/photo-1526662092594-e98c1e35652b?auto=format&fit=crop&q=80",
     attachments: [
       { name: "Flyer", url: "#" },
-      { name: "Fotos", url: "#" },
+      { name: "Fotos", url: "https://pixabay.com/get/g0c18448bcc7948c6657846233acffb181282e7dde42a0b674dc7a4464c3eb334321b9c3ee25043a496b4bfa856981b9e2b38afb3a12bf146f913f3cc981c37760f0f148cf1d81ae3a5fab8c42bddaa6b_1920.jpg?attachment=" },
     ],
   },
   // Add more sample posts if needed

@@ -1,15 +1,14 @@
-import React from "react";
 import PageHero from "./PageHero";
-import SectionTitle from "./SectionTitle";
-import SectionText from "./SectionText";
-import { LegalPageData } from "../../data/legal";
+import type { LegalContentData } from "../../data/legal";
+import type { PageHeroData } from "../../data/pages";
 
 interface LegalPageLayoutProps {
-  data: LegalPageData;
+  hero: PageHeroData;
+  data: LegalContentData;
 }
 
-export default function LegalPageLayout({ data }: LegalPageLayoutProps) {
-  const { hero, lastUpdated, sections } = data;
+export default function LegalPageLayout({ hero, data }: LegalPageLayoutProps) {
+  const { lastUpdated, sections } = data;
 
   return (
     <div className="min-h-screen bg-gray-50">

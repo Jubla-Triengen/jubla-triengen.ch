@@ -1,10 +1,30 @@
-export const contactPageData = {
-  hero: {
-    title: "Kontakt & Mitmachen",
-    subtitle: "Wir freuen uns von dir zu hören!",
-    image:
-      "https://images.unsplash.com/photo-1529156069898-49953e39b3ac?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80", // Group of people or writing
+export interface ContactDetails {
+  email?: string;
+  address?: string[];
+}
+
+export interface ContactSection {
+  id: string;
+  title: string;
+  paragraphs: string[];
+  image: {
+    src: string;
+    alt: string;
   },
+  imagePosition?: "left" | "right";
+  backgroundColor?: string;
+  contactDetails?: ContactDetails;
+  button?: {
+    text: string;
+    link: string;
+  };
+}
+
+export interface ContactPageData {
+  sections: ContactSection[];
+}
+
+export const contactPageData: ContactPageData = {
   sections: [
     {
       id: "contact",
@@ -14,7 +34,7 @@ export const contactPageData = {
         "Du erreichst uns am besten per E-Mail oder über unsere Scharleitung.",
       ],
       image: {
-        src: "https://images.unsplash.com/photo-1577563908411-5077b6dc7624?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80", // Writing or communication
+        src: "https://images.unsplash.com/photo-1577563908411-5077b6dc7624?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80",
         alt: "Kontakt aufnehmen",
       },
       imagePosition: "right",

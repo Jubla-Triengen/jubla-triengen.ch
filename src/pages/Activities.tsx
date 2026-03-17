@@ -4,19 +4,16 @@ import PageHero from "../components/ui/PageHero";
 import PageDescription from "../components/ui/PageDescription";
 import PageContent from "../components/ui/PageContent";
 import SearchableCardGrid from "../components/ui/SearchableCardGrid";
+import { getPageConfig } from "../data/pages";
 
 export default function Activities() {
+  const page = getPageConfig("activities");
+
   return (
     <div className="min-h-screen bg-gray-50">
-      <PageHero
-        image="https://images.unsplash.com/photo-1502086223501-681a6a508d52?auto=format&fit=crop&q=80"
-        title="Jahres Programm"
-      />
+      {page.hero && <PageHero {...page.hero} />}
       <PageContent>
-        <PageDescription
-          title="Unsere Aktivitäten"
-          description="Entdecke unser vielfältiges Jahresprogramm voller spannender Aktivitäten, die für jedes Alter und Interesse etwas bieten. Von actionreichen Outdoor-Abenteuern über kreative Workshops bis hin zu gemütlichen Lagerfeuerabenden – bei uns ist immer etwas los!"
-        />
+        {page.description && <PageDescription {...page.description} />}
 
         <SearchableCardGrid
           items={activities}

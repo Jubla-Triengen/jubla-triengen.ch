@@ -2,17 +2,22 @@ import { useParams, Link } from "react-router-dom";
 import { posts } from "../data/posts";
 import DetailPageLayout from "../components/ui/DetailPageLayout";
 import { Calendar, Download } from "lucide-react";
+import { postDetailContent } from "../data/postDetail";
+import { getPageConfig } from "../data/pages";
 
 export default function PostDetail() {
   const { id } = useParams<{ id: string }>();
   const post = posts.find((p) => p.id === id);
+  const page = getPageConfig("postDetail");
 
   if (!post) {
     return (
       <div className="min-h-screen pt-32 pb-16 px-4 text-center">
-        <h2 className="text-2xl font-bold mb-4">Beitrag nicht gefunden</h2>
+        <h2 className="text-2xl font-bold mb-4">
+          {postDetailContent.notFoundTitle}
+        </h2>
         <Link to="/posts" className="text-blue-600 hover:underline">
-          Zurück zur Übersicht
+          {postDetailContent.backLabel}
         </Link>
       </div>
     );
@@ -21,13 +26,13 @@ export default function PostDetail() {
   return (
     <DetailPageLayout
       hero={{
-        image: post.image,
+        image: post.image || page.hero?.image || "",
         title: post.title,
-        subtitle: post.date,
+        subtitle: post.date || page.hero?.subtitle,
       }}
       backLink={{
         to: "/posts",
-        label: "Zurück zur Übersicht",
+        label: postDetailContent.backLabel,
       }}
     >
       <div className="flex items-center gap-2 text-yellow-500 mb-6">
@@ -45,7 +50,9 @@ export default function PostDetail() {
 
       {post.attachments.length > 0 && (
         <div className="border-t border-gray-100 pt-8">
-          <h3 className="text-xl font-bold mb-6">Downloads & Infos</h3>
+          <h3 className="text-xl font-bold mb-6">
+            {postDetailContent.downloadsTitle}
+          </h3>
           <div className="grid gap-4 sm:grid-cols-2">
             {post.attachments.map((file, index) => (
               <a
@@ -60,7 +67,9 @@ export default function PostDetail() {
                   <span className="font-medium text-gray-900 block group-hover:text-blue-700">
                     {file.name}
                   </span>
-                  <span className="text-sm text-gray-500">Download</span>
+                  <span className="text-sm text-gray-500">
+                    {postDetailContent.downloadLabel}
+                  </span>
                 </div>
               </a>
             ))}

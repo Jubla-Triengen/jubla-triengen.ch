@@ -1,48 +1,19 @@
 import CircularGallery from "../components/ui/CircularGallery";
 import { useNavigate } from "react-router-dom";
 import PageHero from "../components/ui/PageHero";
-
-const albums = [
-  {
-    image: "https://picsum.photos/seed/1/800/600?grayscale",
-    text: "Summer Camp 2023",
-    id: "summer-2023",
-  },
-  {
-    image: "https://picsum.photos/seed/2/800/600?grayscale",
-    text: "Winter Skiing",
-    id: "winter-skiing",
-  },
-  {
-    image: "https://picsum.photos/seed/3/800/600?grayscale",
-    text: "Charity Run",
-    id: "charity-run",
-  },
-  {
-    image: "https://picsum.photos/seed/4/800/600?grayscale",
-    text: "Forest Adventure",
-    id: "forest-adventure",
-  },
-  {
-    image: "https://picsum.photos/seed/5/800/600?grayscale",
-    text: "City Trip",
-    id: "city-trip",
-  },
-];
+import { galleryAlbums } from "../data/gallery";
+import { getPageConfig } from "../data/pages";
 
 export default function Gallery() {
   const navigate = useNavigate();
+  const page = getPageConfig("gallery");
 
   return (
     <div className="w-full h-full bg-[#111] relative">
-      <PageHero
-        title="Foto Gallerie"
-        subtitle="Erleben Sie die Abenteuer unserer Jugendgruppe durch unsere Fotogalerie"
-        image="https://picsum.photos/seed/hero/1200/400?grayscale"
-      />
+      {page.hero && <PageHero {...page.hero} />}
       <div className="w-full h-[60vh] ">
         <CircularGallery
-          items={albums}
+          items={galleryAlbums}
           bend={3}
           textColor="#F3C518"
           backgroundColor="#FFFFFF"
@@ -50,7 +21,7 @@ export default function Gallery() {
           borderRadius={0.05}
           scrollEase={0.05}
           onClick={(index) => {
-            const album = albums[index];
+            const album = galleryAlbums[index];
             if (album) {
               navigate(`/galerie/${album.id}`);
             }

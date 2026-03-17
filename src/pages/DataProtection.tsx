@@ -1,6 +1,13 @@
 import LegalPageLayout from "../components/ui/LegalPageLayout";
-import { privacyData } from "../data/legal";
+import { dataProtectionData } from "../data/dataProtection";
+import { getPageConfig } from "../data/pages";
 
 export default function DataProtection() {
-  return <LegalPageLayout data={privacyData} />;
+  const page = getPageConfig("dataProtection");
+
+  if (!page.hero) {
+    return null;
+  }
+
+  return <LegalPageLayout hero={page.hero} data={dataProtectionData} />;
 }

@@ -4,19 +4,16 @@ import PageDescription from "../components/ui/PageDescription";
 import PageContent from "../components/ui/PageContent";
 import SearchableCardGrid from "../components/ui/SearchableCardGrid";
 import NewsCard from "../components/ui/NewsCard";
+import { getPageConfig } from "../data/pages";
 
 export default function Posts() {
+  const page = getPageConfig("posts");
+
   return (
     <div className="min-h-screen bg-gray-50">
-      <PageHero
-        image="https://images.unsplash.com/photo-1502086223501-681a6a508d52?auto=format&fit=crop&q=80"
-        title="Aktuelles"
-      />
+      {page.hero && <PageHero {...page.hero} />}
       <PageContent>
-        <PageDescription
-          title="Neuigkeiten aus der Schar"
-          description="Hier findest du Berichte über vergangene Anlässe, wichtige Informationen und Neuigkeiten."
-        />
+        {page.description && <PageDescription {...page.description} />}
         <SearchableCardGrid
           items={posts}
           gridClassName=""

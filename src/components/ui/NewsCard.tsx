@@ -1,4 +1,4 @@
-import { ArrowRight, Calendar, Key } from "lucide-react";
+import { ArrowRight, Calendar } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 
 interface NewsCardProps {

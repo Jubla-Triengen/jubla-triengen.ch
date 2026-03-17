@@ -12,17 +12,22 @@ import {
   Heart,
   Star,
 } from "lucide-react";
+import { leaderDetailContent } from "../data/leaderDetail";
+import { getPageConfig } from "../data/pages";
 
 export default function LeaderDetail() {
   const { id } = useParams<{ id: string }>();
   const leader = leaders.find((l) => l.id === id);
+  const page = getPageConfig("leaderDetail");
 
   if (!leader) {
     return (
       <div className="min-h-screen pt-32 pb-16 px-4 text-center">
-        <h2 className="text-2xl font-bold mb-4">Leiter nicht gefunden</h2>
+        <h2 className="text-2xl font-bold mb-4">
+          {leaderDetailContent.notFoundTitle}
+        </h2>
         <Link to="/leiter" className="text-blue-600 hover:underline">
-          Zurück zur Übersicht
+          {leaderDetailContent.backLabel}
         </Link>
       </div>
     );
@@ -31,13 +36,13 @@ export default function LeaderDetail() {
   return (
     <DetailPageLayout
       hero={{
-        image: leader.image,
+        image: leader.image || page.hero?.image || "",
         title: leader.name,
-        subtitle: leader.role,
+        subtitle: leader.role || page.hero?.subtitle,
       }}
       backLink={{
         to: "/leiter",
-        label: "Zurück zur Übersicht",
+        label: leaderDetailContent.backLabel,
       }}
       contentMaxWidthClassName="max-w-5xl"
     >
@@ -52,7 +57,9 @@ export default function LeaderDetail() {
           </div>
 
           <div className="w-full bg-blue-50 p-6 rounded-xl border border-blue-100">
-            <h3 className="font-bold text-gray-800 mb-4 text-lg">Kontakt</h3>
+            <h3 className="font-bold text-gray-800 mb-4 text-lg">
+              {leaderDetailContent.contactTitle}
+            </h3>
             <div className="flex flex-col gap-3 text-gray-600">
               {leader.email && (
                 <div className="flex items-center gap-3">
@@ -79,7 +86,9 @@ export default function LeaderDetail() {
               {!leader.email && !leader.phone && (
                 <div className="flex items-center gap-3 italic text-gray-400">
                   <User className="w-5 h-5 flex-shrink-0" />
-                  <span className="text-sm">Keine Kontaktdaten öffentlich</span>
+                  <span className="text-sm">
+                    {leaderDetailContent.noContactText}
+                  </span>
                 </div>
               )}
             </div>
@@ -109,7 +118,7 @@ export default function LeaderDetail() {
                 <Cake className="w-6 h-6 text-orange-400 flex-shrink-0 mt-1" />
                 <div>
                   <p className="text-sm text-gray-500 font-medium uppercase tracking-wider">
-                    Geburtstag
+                    {leaderDetailContent.birthdayLabel}
                   </p>
                   <p className="text-gray-800">{leader.birthday}</p>
                 </div>
@@ -121,7 +130,7 @@ export default function LeaderDetail() {
                 <Briefcase className="w-6 h-6 text-slate-500 flex-shrink-0 mt-1" />
                 <div>
                   <p className="text-sm text-gray-500 font-medium uppercase tracking-wider">
-                    Beruf
+                    {leaderDetailContent.professionLabel}
                   </p>
                   <p className="text-gray-800">{leader.profession}</p>
                 </div>
@@ -133,7 +142,7 @@ export default function LeaderDetail() {
                 <GraduationCap className="w-6 h-6 text-indigo-500 flex-shrink-0 mt-1" />
                 <div>
                   <p className="text-sm text-gray-500 font-medium uppercase tracking-wider">
-                    J+S Kurse
+                    {leaderDetailContent.coursesLabel}
                   </p>
                   <p className="text-gray-800">{leader.courses}</p>
                 </div>
@@ -145,7 +154,7 @@ export default function LeaderDetail() {
                 <Award className="w-6 h-6 text-yellow-500 flex-shrink-0 mt-1" />
                 <div>
                   <p className="text-sm text-gray-500 font-medium uppercase tracking-wider">
-                    Ämtli in der Schar
+                    {leaderDetailContent.rolesLabel}
                   </p>
                   <p className="text-gray-800">{leader.jublaRoles}</p>
                 </div>
@@ -157,7 +166,7 @@ export default function LeaderDetail() {
             <div className="prose prose-lg max-w-none text-gray-600 whitespace-pre-line">
               <h3 className="text-xl font-bold text-gray-800 mb-3 flex items-center gap-2">
                 <User className="w-5 h-5 text-blue-600" />
-                Über mich
+                {leaderDetailContent.aboutLabel}
               </h3>
               <p>{leader.longDescription || leader.description}</p>
             </div>
@@ -166,7 +175,7 @@ export default function LeaderDetail() {
               <div className="bg-gray-50 p-6 rounded-xl">
                 <h3 className="text-xl font-bold text-gray-800 mb-3 flex items-center gap-2">
                   <Heart className="w-5 h-5 text-red-500" />
-                  Freizeit
+                  {leaderDetailContent.hobbiesLabel}
                 </h3>
                 <p className="text-gray-700">{leader.hobbies}</p>
               </div>
@@ -176,7 +185,7 @@ export default function LeaderDetail() {
               <div className="bg-yellow-50 p-6 rounded-xl border border-yellow-100">
                 <h3 className="text-xl font-bold text-gray-800 mb-3 flex items-center gap-2">
                   <Star className="w-5 h-5 text-yellow-500 fill-yellow-500" />
-                  Jubla Highlight
+                  {leaderDetailContent.highlightLabel}
                 </h3>
                 <p className="text-gray-700 italic">
                   "{leader.jublaHighlight}"
