@@ -38,8 +38,8 @@ function App() {
           <Route path="/angebote/:id" element={<OfferingDetail />} />
           <Route path="/posts" element={<Posts />} />
           <Route path="/posts/:id" element={<PostDetail />} />
-          <Route path="/galerie" element={<Gallery />} />
-          <Route path="/galerie/:id" element={<AlbumDetail />} />
+          {/* <Route path="/galerie" element={<Gallery />} /> */}
+          {/* <Route path="/galerie/:id" element={<AlbumDetail />} /> */}
           <Route path="/kontakt" element={<Contact />} />
           <Route path="/impressum" element={<Impressum />} />
           <Route path="/datenschutz" element={<DataProtection />} />
