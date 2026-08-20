@@ -1,13 +1,8 @@
-import {
-  Facebook,
-  Instagram,
-  Mail,
-  Phone,
-  MapPin,
-  LucideIcon,
-} from "lucide-react";
+import { Facebook, Mail, LucideIcon } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Logo } from "./Logo";
+import { useCmsData } from "../../cms/context";
+import { resolveIcon } from "../../cms/icons";
 
 interface ContactItem {
   icon: LucideIcon;
@@ -26,47 +21,39 @@ interface SocialLink {
   label: string;
 }
 
-const brandConfig = {
-  name: "Jubla Triengen",
-  description:
-    "Abenteuer, Freundschaft und unvergessliche Erlebnisse für Kinder und Jugendliche.",
-};
-
-const contactInfo: ContactItem[] = [
-  {
-    icon: Mail,
-    text: "info@jubla-triengen.ch",
-    href: "mailto:info@jubla-triengen.ch",
-  },
-  {
-    icon: Phone,
-    text: "+41 41 123 45 67",
-    href: "tel:+41411234567",
-  },
-  {
-    icon: MapPin,
-    text: "Triengen, Luzern",
-  },
-];
-
-const infoLinks: LinkItem[] = [
-  { label: "Angebote", href: "/angebote" },
-  { label: "Anlässe", href: "/anlässe" },
-  { label: "News", href: "/posts" },
-  { label: "Über uns", href: "/über-uns" },
-];
-
-const socialLinks: SocialLink[] = [
-  { icon: Facebook, href: "https://www.facebook.com/jublatriengen", label: "Facebook" },
-  { icon: Instagram, href: "https://www.instagram.com/jublatriengen/", label: "Instagram" },
-];
-
-const footerLinks: LinkItem[] = [
-  { label: "Datenschutz", href: "/datenschutz" },
-  { label: "Impressum", href: "/impressum" },
-];
-
 export default function Footer() {
+  const data = useCmsData();
+
+  const brandConfig = data.settings.brand ?? {
+    name: "Jubla Triengen",
+    description:
+      "Abenteuer, Freundschaft und unvergessliche Erlebnisse für Kinder und Jugendliche.",
+  };
+
+  const contactInfo: ContactItem[] = data.navigation
+    .filter((item) => item.location === "footer_contact")
+    .map((item) => ({
+      icon: resolveIcon(item.icon) ?? Mail,
+      text: item.label,
+      href: item.href,
+    }));
+
+  const infoLinks: LinkItem[] = data.navigation
+    .filter((item) => item.location === "footer_links" && Boolean(item.href))
+    .map((item) => ({ label: item.label, href: item.href as string }));
+
+  const socialLinks: SocialLink[] = data.navigation
+    .filter((item) => item.location === "footer_social" && Boolean(item.href))
+    .map((item) => ({
+      icon: resolveIcon(item.icon) ?? Facebook,
+      href: item.href as string,
+      label: item.label,
+    }));
+
+  const footerLinks: LinkItem[] = data.navigation
+    .filter((item) => item.location === "footer_legal" && Boolean(item.href))
+    .map((item) => ({ label: item.label, href: item.href as string }));
+
   return (
     <footer className="bg-jubla-gray text-white py-16">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">

@@ -1,37 +1,29 @@
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 import { Logo } from "./Logo";
+import { useCmsData } from "../../cms/context";
 
 interface NavItem {
   label: string;
-  sectionId?: string;
-  path?: string;
+  href: string;
 }
-
-const brandConfig = {
-  name: "Jubla Triengen",
-  icon: Logo,
-};
-
-const navItems: NavItem[] = [
-  { label: "Über uns", sectionId: "about", path: "/über-uns" },
-  { label: "Angebote", path: "/angebote" },
-  { label: "Anlässe", sectionId: "highlights", path: "/anlässe" },
-  { label: "Neues aus der Jubla", path: "/posts" },
-  //{ label: "Galerie", path: "/galerie" },
-];
 
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const location = useLocation();
   const navigate = useNavigate();
+  const data = useCmsData();
 
-  const ctaButton = {
+  const brandConfig = data.settings.brand ?? { name: "Jubla Triengen" };
+  const ctaButton = data.settings.header_cta ?? {
     label: "Mitmachen",
-    action: () => navigate("/kontakt"),
+    href: "/kontakt",
   };
+
+  const navItems: NavItem[] = data.navigation
+    .filter((item) => item.location === "header" && Boolean(item.href))
+    .map((item) => ({ label: item.label, href: item.href as string }));
 
   useEffect(() => {
     const handleScroll = () => {
@@ -43,31 +35,7 @@ export default function Header() {
 
   const handleNavigation = (item: NavItem) => {
     setIsMobileMenuOpen(false);
-
-    if (item.path) {
-      if (item.path.startsWith("/#")) {
-        // Handle hash navigation if needed, but simple path generic here
-      }
-      navigate(item.path);
-      // If there's a sectionId and we're navigating to home, we might want to scroll after nav
-      // For now, let's keep it simple: direct link or scroll
-    } else if (item.sectionId) {
-      // logic for scroll only if on home
-      if (location.pathname !== "/home" && location.pathname !== "/") {
-        navigate(`/?section=${item.sectionId}`); // Simplified approach, or just navigate home
-        setTimeout(() => {
-          const element = document.getElementById(item.sectionId!);
-          if (element) {
-            element.scrollIntoView({ behavior: "smooth" });
-          }
-        }, 100);
-      } else {
-        const element = document.getElementById(item.sectionId);
-        if (element) {
-          element.scrollIntoView({ behavior: "smooth" });
-        }
-      }
-    }
+    navigate(item.href);
   };
 
   return (
@@ -79,7 +47,7 @@ export default function Header() {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
           <Link to="/" className="flex items-center gap-2">
-            <brandConfig.icon
+            <Logo
               className={`w-14 h-14 ${
                 isScrolled ? "text-jubla-yellow" : "text-white"
               }`}
@@ -108,7 +76,7 @@ export default function Header() {
               </button>
             ))}
             <button
-              onClick={ctaButton.action}
+              onClick={() => navigate(ctaButton.href)}
               className="bg-jubla-yellow hover:bg-jubla-yellow-dark text-black font-mundial font-semibold px-6 py-2.5 rounded-full transition-all duration-300 transform hover:scale-105"
             >
               {ctaButton.label}
@@ -141,7 +109,7 @@ export default function Header() {
               </button>
             ))}
             <button
-              onClick={ctaButton.action}
+              onClick={() => navigate(ctaButton.href)}
               className="w-full bg-jubla-yellow hover:bg-jubla-yellow-dark text-black font-mundial font-semibold px-6 py-3 rounded-full transition-colors"
             >
               {ctaButton.label}
