@@ -18,10 +18,12 @@ import AlbumDetail from "./pages/AlbumDetail";
 import Contact from "./pages/Contact";
 import Impressum from "./pages/Impressum";
 import DataProtection from "./pages/DataProtection";
+import ClickSpark from "./components/ui/ClickSpark";
 
 function App() {
   return (
     <BrowserRouter>
+    <ClickSpark>
       <ScrollToTop />
       <div className="min-h-screen">
         <Header />
@@ -36,8 +38,8 @@ function App() {
           <Route path="/angebote/:id" element={<OfferingDetail />} />
           <Route path="/posts" element={<Posts />} />
           <Route path="/posts/:id" element={<PostDetail />} />
-          <Route path="/galerie" element={<Gallery />} />
-          <Route path="/galerie/:id" element={<AlbumDetail />} />
+          {/* <Route path="/galerie" element={<Gallery />} /> */}
+          {/* <Route path="/galerie/:id" element={<AlbumDetail />} /> */}
           <Route path="/kontakt" element={<Contact />} />
           <Route path="/impressum" element={<Impressum />} />
           <Route path="/datenschutz" element={<DataProtection />} />
@@ -45,6 +47,7 @@ function App() {
         </Routes>
         <Footer />
       </div>
+    </ClickSpark>
     </BrowserRouter>
   );
 }

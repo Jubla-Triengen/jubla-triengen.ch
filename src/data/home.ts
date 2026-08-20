@@ -53,7 +53,7 @@ export const homeWelcomeContent: HomeWelcomeContent = {
     "Bei uns stehen Spass, Kreativität und das gemeinsame Erleben im Mittelpunkt. Ob bei wöchentlichen Gruppenstunden, aufregenden Ferienlagern oder besonderen Events - bei der Jubla ist für jedes Kind etwas dabei.",
   ],
   image: {
-    src: "https://image.jimcdn.com/app/cms/image/transf/none/path/sb21156d07b64a771/image/iaadd36084aabac03/version/1741809698/image.jpg",
+    src: "https://media.jubla-triengen.ch/placeholder-image.png",
     alt: "Kinder beim Wandern",
   },
   button: {

@@ -15,7 +15,7 @@ export default function HeroSection() {
         className="absolute inset-0 z-0"
         style={{
           backgroundImage:
-            "url(https://image.jimcdn.com/cdn-cgi/image//app/cms/storage/image/path/sb21156d07b64a771/backgroundarea/ib36b1240ebbc0855/version/1556893189/image.jpg)",
+            "url(https://media.jubla-triengen.ch/main.jpg)",
           backgroundSize: "cover",
           backgroundPosition: "center",
         }}

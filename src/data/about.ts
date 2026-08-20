@@ -29,7 +29,7 @@ export const aboutPageData: AboutPageData = {
         "Das Angebot in den lokalen Scharen (Ortsgruppen) reicht von regelmässigen Gruppenstunden über Scharanlässe bis hin zu Zelt- und Hauslagern.",
       ],
       image: {
-        src: "https://images.unsplash.com/photo-1526976668912-1a811878dd37?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80",
+        src: "https://media.jubla-triengen.ch/placeholder-image.png",
         alt: "Jubla Gruppe beim Spielen",
       },
       button: {
@@ -47,7 +47,7 @@ export const aboutPageData: AboutPageData = {
         "Dabei steht das gemeinsame Erleben im Vordergrund. Wir pflegen einen respektvollen Umgang miteinander und übernehmen Verantwortung für uns und andere.",
       ],
       image: {
-        src: "https://images.unsplash.com/photo-1533240332313-0db49b459ad6?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80",
+        src: "https://media.jubla-triengen.ch/placeholder-image.png",
         alt: "Lagerfeuer Stimmung",
       },
       imagePosition: "left",
@@ -62,7 +62,7 @@ export const aboutPageData: AboutPageData = {
         "Komm vorbei und schnuppere Jubla-Luft! Wir freuen uns auf dich.",
       ],
       image: {
-        src: "https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80",
+        src: "https://media.jubla-triengen.ch/placeholder-image.png",
         alt: "Gruppenfoto Jubla Triengen",
       },
       imagePosition: "right",

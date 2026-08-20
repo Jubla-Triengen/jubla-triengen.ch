@@ -36,7 +36,7 @@ export default function LeaderDetail() {
   return (
     <DetailPageLayout
       hero={{
-        image: leader.image || page.hero?.image || "",
+        image: leader.backgroundImage || leader.image || page.hero?.image || "",
         title: leader.name,
         subtitle: leader.role || page.hero?.subtitle,
       }}

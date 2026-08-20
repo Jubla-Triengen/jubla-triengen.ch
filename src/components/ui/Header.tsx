@@ -19,7 +19,7 @@ const navItems: NavItem[] = [
   { label: "Angebote", path: "/angebote" },
   { label: "Anlässe", sectionId: "highlights", path: "/anlässe" },
   { label: "Neues aus der Jubla", path: "/posts" },
-  { label: "Galerie", path: "/galerie" },
+  //{ label: "Galerie", path: "/galerie" },
 ];
 
 export default function Header() {

@@ -23,9 +23,6 @@ export default function Leaders() {
             leader.role,
             leader.email,
             leader.phone,
-            leader.birthday,
-            leader.courses,
-            leader.jublaRoles,
           ]}
           searchPlaceholder="Leitungsperson suchen..."
           emptyResultsText="Keine passenden Leitungspersonen gefunden."

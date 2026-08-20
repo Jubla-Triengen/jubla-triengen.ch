@@ -41,7 +41,7 @@ export const pages: Record<PageId, PageConfig> = {
     id: "about",
     hero: {
       image:
-        "https://images.unsplash.com/photo-1472162072942-cd5147eb3902?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80",
+        "https://media.jubla-triengen.ch/about-header.jpg",
       title: "Über die Jubla",
       subtitle: "Gemeinschaft, Abenteuer und unvergessliche Momente",
     },
@@ -73,7 +73,7 @@ export const pages: Record<PageId, PageConfig> = {
     description: {
       title: "Unsere Aktivitäten",
       description:
-        "Entdecke unser vielfältiges Jahresprogramm voller spannender Aktivitäten, die für jedes Alter und Interesse etwas bieten. Von actionreichen Outdoor-Abenteuern über kreative Workshops bis hin zu gemütlichen Lagerfeuerabenden - bei uns ist immer etwas los!",
+        "Entdecke unser vielfältiges Jahresprogramm voller spannender Aktivitäten, die für jedes Alter und Interesse etwas bieten.",
     },
   },
   activityDetail: {
