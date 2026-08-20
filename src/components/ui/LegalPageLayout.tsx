@@ -1,6 +1,15 @@
 import PageHero from "./PageHero";
-import type { LegalContentData } from "../../data/legal";
-import type { PageHeroData } from "../../data/pages";
+import type { PageHeroData } from "../../cms/types";
+
+interface LegalSectionData {
+  title?: string;
+  content: string[];
+}
+
+interface LegalContentData {
+  lastUpdated?: string;
+  sections: LegalSectionData[];
+}
 
 interface LegalPageLayoutProps {
   hero: PageHeroData;
